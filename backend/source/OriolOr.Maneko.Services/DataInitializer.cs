@@ -6,9 +6,7 @@ namespace OriolOr.Maneko.Services
     {
         public void Initialize()
         {
-            YearBalance yearBalance = new YearBalance()
-            {
-            };
+            YearBalance yearBalance = new YearBalance();
 
             MonthBalance JanuaryBalance = new MonthBalance() { Month = "January", InitialBalance = 23.4f , FinalBalance = 12.3f};
             MonthBalance FebruaryBalance = new MonthBalance() { Month = "February", InitialBalance = 33.4f, FinalBalance = 12.3f };
