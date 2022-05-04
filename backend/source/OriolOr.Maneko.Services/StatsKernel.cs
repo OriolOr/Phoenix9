@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace OriolOr.Maneko.Services
 {
-    internal class StatsKernel
+    public class StatsKernel
     {
+        public float GetLastBalance()
+        {
+            return 12.3f;
+        }
     }
 }

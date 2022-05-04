@@ -1,4 +1,4 @@
-﻿using OriolOr.Maneko.Contracts;
+﻿using OriolOr.Maneko.Source.Contracts;
 
 namespace OriolOr.Maneko.Services
 {

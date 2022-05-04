@@ -1,8 +1,11 @@
-using OriolOr.Maneko.Contracts;
 
-public class MonthBalance
+
+namespace OriolOr.Maneko.Source.Contracts
 {
-    public string? Month;
-    public float InitialBalance;
-    public float FinalBalance;
+    public class MonthBalance
+    {
+        public string? Month;
+        public float InitialBalance;
+        public float FinalBalance;
+    }
 }
