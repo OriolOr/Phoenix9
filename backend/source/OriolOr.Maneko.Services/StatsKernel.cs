@@ -5,7 +5,10 @@ namespace OriolOr.Maneko.Services
     {
         public float GetLastBalance()
         {
-            return 12.3f;
+           var DataManager = new DataManager();
+           var data = DataManager.Initialize();
+
+            return 21.3f;
         }
     }
 }

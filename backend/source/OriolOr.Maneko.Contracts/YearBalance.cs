@@ -8,6 +8,8 @@ namespace OriolOr.Maneko.Source.Contracts
         {
             this.MonthBalances = new Collection<MonthBalance>();
         }
-       public Collection<MonthBalance> MonthBalances;
+
+        public int Year;
+        public Collection<MonthBalance> MonthBalances;
     }
 }
