@@ -9,7 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OriolOr.Maneko.Contracts", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OriolOr.Maneko.Services", "source\OriolOr.Maneko.Services\OriolOr.Maneko.Services.csproj", "{F1E984FC-923D-4D11-AC54-5E3BA5232FDF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OriolOr.Maneko.API", "OriolOr.Maneko.API\OriolOr.Maneko.API.csproj", "{BF1D06ED-6295-42FE-82FB-304B8C5DE180}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OriolOr.Maneko.API", "OriolOr.Maneko.API\OriolOr.Maneko.API.csproj", "{BF1D06ED-6295-42FE-82FB-304B8C5DE180}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OriolOr.Maneko.Infrastructure", "source\OriolOr.Maneko.Infrastructure\OriolOr.Maneko.Infrastructure.csproj", "{F03DA555-02FE-4662-8B12-D8960CA8E4E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OriolOr.Maneko.ExternalCom", "source\OriolOr.Maneko.ExternalCom\OriolOr.Maneko.ExternalCom.csproj", "{80C279C4-2E57-485B-A707-A6D79223A2B7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +33,14 @@ Global
 		{BF1D06ED-6295-42FE-82FB-304B8C5DE180}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF1D06ED-6295-42FE-82FB-304B8C5DE180}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF1D06ED-6295-42FE-82FB-304B8C5DE180}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F03DA555-02FE-4662-8B12-D8960CA8E4E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F03DA555-02FE-4662-8B12-D8960CA8E4E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F03DA555-02FE-4662-8B12-D8960CA8E4E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F03DA555-02FE-4662-8B12-D8960CA8E4E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80C279C4-2E57-485B-A707-A6D79223A2B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80C279C4-2E57-485B-A707-A6D79223A2B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80C279C4-2E57-485B-A707-A6D79223A2B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80C279C4-2E57-485B-A707-A6D79223A2B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -37,6 +49,8 @@ Global
 		{47FBA98F-D0D6-4759-AD4D-597651EA7ACE} = {94112010-9D5A-487C-A0CA-69EFE58290AE}
 		{F1E984FC-923D-4D11-AC54-5E3BA5232FDF} = {94112010-9D5A-487C-A0CA-69EFE58290AE}
 		{BF1D06ED-6295-42FE-82FB-304B8C5DE180} = {94112010-9D5A-487C-A0CA-69EFE58290AE}
+		{F03DA555-02FE-4662-8B12-D8960CA8E4E2} = {94112010-9D5A-487C-A0CA-69EFE58290AE}
+		{80C279C4-2E57-485B-A707-A6D79223A2B7} = {94112010-9D5A-487C-A0CA-69EFE58290AE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F490FAF1-4C04-489D-ADE4-455DF8FE30B3}

@@ -1,5 +1,5 @@
 ﻿
-namespace OriolOr.Maneko.Services
+namespace OriolOr.Maneko.Source.Services
 {
     public class StatsKernel
     {
@@ -10,5 +10,15 @@ namespace OriolOr.Maneko.Services
 
             return 21.3f;
         }
-    }
+
+        public float GetMonthlyIncome()
+        {
+            return 0.0f;
+        }
+
+        public float GetMonthlyExpenses()
+        {
+            return 0.0f;
+        }
+   }
 }

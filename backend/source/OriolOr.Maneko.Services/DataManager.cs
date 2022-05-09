@@ -1,6 +1,6 @@
 ﻿using OriolOr.Maneko.Source.Contracts;
 
-namespace OriolOr.Maneko.Services
+namespace OriolOr.Maneko.Source.Services
 {
     public class DataManager
     {
@@ -18,7 +18,7 @@ namespace OriolOr.Maneko.Services
             yearBalance.MonthBalances.Add(MarchBalance);
             yearBalance.MonthBalances.Add(AprilBalance);
 
-            return yearBalance
+            return yearBalance; 
 
         }
 
