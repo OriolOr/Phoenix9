@@ -12,22 +12,10 @@ namespace OriolOr.Maneko.Source.Services
 
         public float GetCurrentBalance()
         {
-            return 13.3f;
-        }
-        public float GetLastBalance()
-        {
-
-            return 21.3f;
+           return Account.YearHistory.FirstOrDefault().MonthBalances.LastOrDefault().FinalBalance;
         }
 
-        public float GetMonthlyIncome()
-        {
-            return 10.0f;
-        }
 
-        public float GetMonthlyExpenses()
-        {
-            return 43.0f;
-        }
+
    }
 }

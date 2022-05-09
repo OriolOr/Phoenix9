@@ -22,8 +22,7 @@ namespace OriolOr.Maneko.Source.API.Controllers
         [HttpGet("GetCurrentBalance")]
         public string GetCurrentBalance()
         {
-            var stats = new StatsManager(this.account);
-            return JsonConvert.SerializeObject(stats.GetCurrentBalance());
+            return JsonConvert.SerializeObject(this.stats.GetCurrentBalance());
         }
 
         [HttpGet("GetYearData")]
