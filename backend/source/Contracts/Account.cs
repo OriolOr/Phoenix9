@@ -1,4 +1,4 @@
-﻿
+﻿ 
 using System.Collections.ObjectModel;
 
 namespace OriolOr.Maneko.Source.Contracts
@@ -10,7 +10,7 @@ namespace OriolOr.Maneko.Source.Contracts
             this.YearHistory = new Collection<YearBalance>();
         }
 
-        public IEnumerable<YearBalance> YearHistory;
+        public Collection<YearBalance> YearHistory;
         public float CurrentBalance; 
     }
 }

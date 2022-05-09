@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OriolOr.Maneko.Source.Services;
 using OriolOr.Maneko.Source.Contracts;
+using Newtonsoft.Json;
 
 namespace OriolOr.Maneko.Source.API.Controllers
 {
@@ -15,21 +16,20 @@ namespace OriolOr.Maneko.Source.API.Controllers
         {
             this.account = new Account();
             this.stats = new StatsManager(this.account);
-            DataManager.Initialize(account.YearHistory.First());
+            DataManager.LoadJsonData(account);
         }
 
         [HttpGet("GetCurrentBalance")]
-        public float GetCurrentBalance()
+        public string GetCurrentBalance()
         {
             var stats = new StatsManager(this.account);
-            return stats.GetCurrentBalance();
+            return JsonConvert.SerializeObject(stats.GetCurrentBalance());
         }
 
         [HttpGet("GetYearData")]
-        public float GetYearData()
+        public string GetYearData()
         {
-            var stats = new StatsManager(this.account);
-            return stats.GetCurrentBalance();
+            return JsonConvert.SerializeObject(this.account.YearHistory.FirstOrDefault());
         }
     }
 }
