@@ -21,11 +21,10 @@ namespace OriolOr.Maneko.Source.API.Controllers
         }
 
         [HttpGet("GetYearData")]
-        public void GetYearData()
+        public float GetYearData()
         {
-            //var service = new AccountService();
-            //return service.GetCurrentBalance();
-            //return 0.0f;
+            var service = new AccountService();
+            return service.GetCurrentBalance();
         }
     }
 }
