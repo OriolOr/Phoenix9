@@ -14,8 +14,5 @@ namespace OriolOr.Maneko.Source.Services
         {
            return Account.YearHistory.FirstOrDefault().MonthBalances.LastOrDefault().FinalBalance;
         }
-
-
-
    }
 }
