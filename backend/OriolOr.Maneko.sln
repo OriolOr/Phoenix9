@@ -5,15 +5,20 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{94112010-9D5A-487C-A0CA-69EFE58290AE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OriolOr.Maneko.Contracts", "source\OriolOr.Maneko.Contracts\OriolOr.Maneko.Contracts.csproj", "{47FBA98F-D0D6-4759-AD4D-597651EA7ACE}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{ECF15B73-60D5-4087-93E5-410BC4FEC477}"
+	ProjectSection(SolutionItems) = preProject
+		source\OriolOr.Maneko.Services\BankData.json = source\OriolOr.Maneko.Services\BankData.json
+	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OriolOr.Maneko.Services", "source\OriolOr.Maneko.Services\OriolOr.Maneko.Services.csproj", "{F1E984FC-923D-4D11-AC54-5E3BA5232FDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OriolOr.Maneko.API", "source\API\OriolOr.Maneko.API.csproj", "{145764CA-1445-4D5D-85E8-6B577F302D5A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OriolOr.Maneko.API", "OriolOr.Maneko.API\OriolOr.Maneko.API.csproj", "{BF1D06ED-6295-42FE-82FB-304B8C5DE180}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OriolOr.Maneko.Contracts", "source\Contracts\OriolOr.Maneko.Contracts.csproj", "{491C020A-D132-4A97-88CE-C9C6FD71F917}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OriolOr.Maneko.Infrastructure", "source\OriolOr.Maneko.Infrastructure\OriolOr.Maneko.Infrastructure.csproj", "{F03DA555-02FE-4662-8B12-D8960CA8E4E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OriolOr.Maneko.ExternalCom", "source\ExternalCom\OriolOr.Maneko.ExternalCom.csproj", "{DB4BF2BF-0E2F-45DE-ACC6-5A220739E5F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OriolOr.Maneko.ExternalCom", "source\OriolOr.Maneko.ExternalCom\OriolOr.Maneko.ExternalCom.csproj", "{80C279C4-2E57-485B-A707-A6D79223A2B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OriolOr.Maneko.Infrastructure", "source\Infrastructure\OriolOr.Maneko.Infrastructure.csproj", "{C9967AEF-9550-482C-A4DB-EFE0A631DF9D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OriolOr.Maneko.Services", "source\Services\OriolOr.Maneko.Services.csproj", "{5EB759C9-D1CC-472B-BF9E-7A007B5F796F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,36 +26,37 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{47FBA98F-D0D6-4759-AD4D-597651EA7ACE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{47FBA98F-D0D6-4759-AD4D-597651EA7ACE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{47FBA98F-D0D6-4759-AD4D-597651EA7ACE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{47FBA98F-D0D6-4759-AD4D-597651EA7ACE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F1E984FC-923D-4D11-AC54-5E3BA5232FDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F1E984FC-923D-4D11-AC54-5E3BA5232FDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F1E984FC-923D-4D11-AC54-5E3BA5232FDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F1E984FC-923D-4D11-AC54-5E3BA5232FDF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BF1D06ED-6295-42FE-82FB-304B8C5DE180}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BF1D06ED-6295-42FE-82FB-304B8C5DE180}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BF1D06ED-6295-42FE-82FB-304B8C5DE180}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BF1D06ED-6295-42FE-82FB-304B8C5DE180}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F03DA555-02FE-4662-8B12-D8960CA8E4E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F03DA555-02FE-4662-8B12-D8960CA8E4E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F03DA555-02FE-4662-8B12-D8960CA8E4E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F03DA555-02FE-4662-8B12-D8960CA8E4E2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{80C279C4-2E57-485B-A707-A6D79223A2B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{80C279C4-2E57-485B-A707-A6D79223A2B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{80C279C4-2E57-485B-A707-A6D79223A2B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{80C279C4-2E57-485B-A707-A6D79223A2B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{145764CA-1445-4D5D-85E8-6B577F302D5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{145764CA-1445-4D5D-85E8-6B577F302D5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{145764CA-1445-4D5D-85E8-6B577F302D5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{145764CA-1445-4D5D-85E8-6B577F302D5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{491C020A-D132-4A97-88CE-C9C6FD71F917}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{491C020A-D132-4A97-88CE-C9C6FD71F917}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{491C020A-D132-4A97-88CE-C9C6FD71F917}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{491C020A-D132-4A97-88CE-C9C6FD71F917}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB4BF2BF-0E2F-45DE-ACC6-5A220739E5F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB4BF2BF-0E2F-45DE-ACC6-5A220739E5F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB4BF2BF-0E2F-45DE-ACC6-5A220739E5F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB4BF2BF-0E2F-45DE-ACC6-5A220739E5F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9967AEF-9550-482C-A4DB-EFE0A631DF9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9967AEF-9550-482C-A4DB-EFE0A631DF9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9967AEF-9550-482C-A4DB-EFE0A631DF9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9967AEF-9550-482C-A4DB-EFE0A631DF9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EB759C9-D1CC-472B-BF9E-7A007B5F796F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EB759C9-D1CC-472B-BF9E-7A007B5F796F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EB759C9-D1CC-472B-BF9E-7A007B5F796F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EB759C9-D1CC-472B-BF9E-7A007B5F796F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{47FBA98F-D0D6-4759-AD4D-597651EA7ACE} = {94112010-9D5A-487C-A0CA-69EFE58290AE}
-		{F1E984FC-923D-4D11-AC54-5E3BA5232FDF} = {94112010-9D5A-487C-A0CA-69EFE58290AE}
-		{BF1D06ED-6295-42FE-82FB-304B8C5DE180} = {94112010-9D5A-487C-A0CA-69EFE58290AE}
-		{F03DA555-02FE-4662-8B12-D8960CA8E4E2} = {94112010-9D5A-487C-A0CA-69EFE58290AE}
-		{80C279C4-2E57-485B-A707-A6D79223A2B7} = {94112010-9D5A-487C-A0CA-69EFE58290AE}
+		{ECF15B73-60D5-4087-93E5-410BC4FEC477} = {94112010-9D5A-487C-A0CA-69EFE58290AE}
+		{145764CA-1445-4D5D-85E8-6B577F302D5A} = {94112010-9D5A-487C-A0CA-69EFE58290AE}
+		{491C020A-D132-4A97-88CE-C9C6FD71F917} = {94112010-9D5A-487C-A0CA-69EFE58290AE}
+		{DB4BF2BF-0E2F-45DE-ACC6-5A220739E5F7} = {94112010-9D5A-487C-A0CA-69EFE58290AE}
+		{C9967AEF-9550-482C-A4DB-EFE0A631DF9D} = {94112010-9D5A-487C-A0CA-69EFE58290AE}
+		{5EB759C9-D1CC-472B-BF9E-7A007B5F796F} = {94112010-9D5A-487C-A0CA-69EFE58290AE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F490FAF1-4C04-489D-ADE4-455DF8FE30B3}

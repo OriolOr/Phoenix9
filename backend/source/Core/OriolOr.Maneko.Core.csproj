@@ -8,7 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\OriolOr.Maneko.Services\OriolOr.Maneko.Services.csproj" />
+    <ProjectReference Include="..\Contracts\OriolOr.Maneko.Contracts.csproj" />
+    <ProjectReference Include="..\Services\OriolOr.Maneko.Services.csproj" />
   </ItemGroup>
+
 
 </Project>

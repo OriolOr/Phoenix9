@@ -7,10 +7,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <EmbeddedResource Remove="Properties\Resources.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EditorConfigFiles Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EditorConfigFiles>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Contracts\OriolOr.Maneko.Contracts.csproj" />
     <ProjectReference Include="..\OriolOr.Maneko.Contracts\OriolOr.Maneko.Contracts.csproj" />
   </ItemGroup>
 

@@ -1,4 +1,4 @@
-﻿using OriolOr.Maneko.Services;
+﻿using OriolOr.Source.Maneko.Services;
 
 public class Program
 {
