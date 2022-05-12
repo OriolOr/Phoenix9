@@ -12,7 +12,7 @@ public static class Program
 
         //input id="password" 
         System.Console.WriteLine("Password:");
-        /var password = Console.ReadLine();
+        var password = Console.ReadLine();
 
 
         var driver = new ChromeDriver();
