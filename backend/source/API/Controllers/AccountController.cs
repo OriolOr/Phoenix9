@@ -20,9 +20,9 @@ namespace OriolOr.Maneko.Source.API.Controllers
         }
 
         [HttpGet("GetCurrentBalance")]
-        public string GetCurrentBalance()
+        public string GetCurrentBalance(string user, string password)
         {
-            return JsonConvert.SerializeObject(this.stats.GetCurrentBalance());
+            return JsonConvert.SerializeObject(this.stats.GetCurrentBalance(user, password));
         }
 
         [HttpGet("GetYearData")]

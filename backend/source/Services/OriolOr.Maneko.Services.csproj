@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\OriolOr.Maneko.ExternalCom\OriolOr.Maneko.ExternalCom.csproj" />
     <ProjectReference Include="..\Contracts\OriolOr.Maneko.Contracts.csproj" />
   </ItemGroup>
 

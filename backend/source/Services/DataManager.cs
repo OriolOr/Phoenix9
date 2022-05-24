@@ -1,7 +1,9 @@
-﻿using OriolOr.Maneko.Source.Contracts;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
+using OriolOr.Maneko.ExternalCom;
 using OriolOr.Maneko.Services.Properties;
+using OriolOr.Maneko.Source.Contracts;
 using System.Collections.ObjectModel;
+
 
 namespace OriolOr.Maneko.Source.Services
 {
@@ -17,6 +19,13 @@ namespace OriolOr.Maneko.Source.Services
             
             account.YearHistory.Add(newYearBalance); 
 
+        }
+
+        public static double GetScrappingData(string user , string pass)
+        {
+
+            WebScrapper scrapper = new WebScrapper(user, pass);
+            return scrapper.ScrapCurrentBalance();
         }
 
     }

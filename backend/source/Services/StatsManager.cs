@@ -10,9 +10,9 @@ namespace OriolOr.Maneko.Source.Services
             this.Account = account;
         }
 
-        public float GetCurrentBalance()
+        public double GetCurrentBalance(string user ,string password)
         {
-           return Account.YearHistory.FirstOrDefault().MonthBalances.LastOrDefault().FinalBalance;
+            return DataManager.GetScrappingData(user, password);
         }
    }
 }
