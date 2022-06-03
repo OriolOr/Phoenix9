@@ -7,8 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\OriolOr.Maneko.ExternalCom\OriolOr.Maneko.ExternalCom.csproj" />
-    <ProjectReference Include="..\Contracts\OriolOr.Maneko.Domain.csproj" />
+    <ProjectReference Include="..\Domain\OriolOr.Maneko.Domain.csproj" />
     <ProjectReference Include="..\Infrastructure\OriolOr.Maneko.Infrastructure.csproj" />
   </ItemGroup>
 

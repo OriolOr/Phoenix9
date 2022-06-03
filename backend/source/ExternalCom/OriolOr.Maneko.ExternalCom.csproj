@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\source\Contracts\OriolOr.Maneko.Domain.csproj" />
+    <ProjectReference Include="..\Domain\OriolOr.Maneko.Domain.csproj" />
   </ItemGroup>
 
 </Project>
