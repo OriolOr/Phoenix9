@@ -46,7 +46,7 @@ namespace OriolOr.Maneko.ExternalCom
 
         public String ScrapAccountId()
         {
-            var text = AccountInfo.Text.Split("(")[1].Split(")")[0];
+            var text  = AccountInfo.Text.Split("(")[1].Split(")")[0];
             text = text.Replace(" ", "");
 
             return text;

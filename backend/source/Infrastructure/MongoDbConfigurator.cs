@@ -114,7 +114,5 @@ namespace OriolOr.Maneko.Infrastructure
            
         }
 
-
-
     }
 }

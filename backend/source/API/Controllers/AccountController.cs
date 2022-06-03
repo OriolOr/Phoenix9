@@ -10,13 +10,11 @@ namespace OriolOr.Maneko.Source.API.Controllers
     [Route("[controller]")]
     public class AccountController : ControllerBase
     {
-        public Account account;
         public AccountService AccountService;
 
         public AccountController()
         {
-            this.account = new Account();
-            this.AccountService = new AccountService(this.account);
+            this.AccountService = new AccountService();
         }
 
         [HttpGet("GetCurrentBalance")]
