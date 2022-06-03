@@ -2,8 +2,8 @@
 {
     public class UserCredentials
     {
-        public String UserName;
-        public String? Password;
-        public String? AccountId;
+        public string UserName;
+        public string? Password;
+        public string? AccountId;
     }
 }

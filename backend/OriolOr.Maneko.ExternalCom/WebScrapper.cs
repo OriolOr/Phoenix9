@@ -12,7 +12,11 @@ namespace OriolOr.Maneko.ExternalCom
         private readonly UserCredentials UserCredentials;
 
 
-        //TODO define page object for web id's
+        private IWebElement UserInput => this.Driver.FindElement(By.Id("username"));
+        private IWebElement PasswordInput => this.Driver.FindElement(By.Id("password"));
+        private IWebElement SubmitButtonCredentials => this.Driver.FindElement(By.TagName("button"));
+        private IWebElement NavigateToAccountInfo => this.Driver.FindElements(By.Id("addBank")).Where(elm => elm.Text.Contains("GLOBAL")).FirstOrDefault();
+        private IWebElement AccountInfo => this.Driver.FindElement(By.Id("product_150543"));
 
         public WebScrapper(UserCredentials userCredentials )
         {
@@ -31,7 +35,7 @@ namespace OriolOr.Maneko.ExternalCom
 
         public double ScrapCurrentBalance()
         {
-            var text = this.Driver.FindElement(By.Id("product_150543")).Text.Split(" ")[1];
+            var text = AccountInfo.Text.Split(" ")[1];
             NumberFormatInfo provider = new NumberFormatInfo();
             provider.NumberDecimalSeparator = ",";
             provider.NumberGroupSeparator = ".";
@@ -42,7 +46,7 @@ namespace OriolOr.Maneko.ExternalCom
 
         public String ScrapAccountId()
         {
-            var text = this.Driver.FindElement(By.Id("product_150543")).Text.Split("(")[1].Split(")")[0];
+            var text = AccountInfo.Text.Split("(")[1].Split(")")[0];
             text = text.Replace(" ", "");
 
             return text;
@@ -51,21 +55,20 @@ namespace OriolOr.Maneko.ExternalCom
 
         private void Login()
         {
-            this.Driver.FindElement(By.Id("username")).SendKeys(this.UserCredentials.UserName);
+            UserInput.SendKeys(this.UserCredentials.UserName);
             Thread.Sleep(500);
 
-            this.Driver.FindElement(By.Id("password")).SendKeys(this.UserCredentials.Password);
+            PasswordInput.SendKeys(this.UserCredentials.Password);
             Thread.Sleep(500);
 
-            this.Driver.FindElement(By.TagName("button")).Click();
+            SubmitButtonCredentials.Click();
             Thread.Sleep(500);
 
         }
 
         private void NavigateToClobalInfo()
         {
-            var elem = this.Driver.FindElements(By.Id("addBank")).Where(elm => elm.Text.Contains("GLOBAL")).FirstOrDefault();
-            elem.Click();
+            NavigateToAccountInfo.Click();
             Thread.Sleep(500);
         }
 

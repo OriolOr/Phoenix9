@@ -7,11 +7,9 @@ namespace OriolOr.Maneko.Source.Services
 {
     public class AccountService
     {
-        public Account Account;
         
+        public AccountService() {
 
-        public AccountService(Account account) {
-            this.Account = account;
         }
 
         public double GetCurrentBalanceFromDb(UserCredentials userCredentials)

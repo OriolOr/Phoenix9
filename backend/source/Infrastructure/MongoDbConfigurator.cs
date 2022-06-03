@@ -63,6 +63,7 @@ namespace OriolOr.Maneko.Infrastructure
         }
 
         private static void LoadUserData(IMongoDatabase database) {
+            
             var collection = database.GetCollection<UserCredentials>("UserData");
             var nDocuments = collection.CountDocuments(FilterDefinition<UserCredentials>.Empty);
 
@@ -72,7 +73,6 @@ namespace OriolOr.Maneko.Infrastructure
                 collection.InsertOne(userData);
 
             }
-
 
         }
 
