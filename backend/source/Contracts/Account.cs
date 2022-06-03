@@ -1,8 +1,9 @@
-﻿ 
+﻿using MongoDB.Bson.Serialization.Attributes;
 using System.Collections.ObjectModel;
 
-namespace OriolOr.Maneko.Source.Contracts
+namespace OriolOr.Maneko.Domain
 {
+    [BsonIgnoreExtraElements]
     public class Account
     {
         public Account()
@@ -11,6 +12,8 @@ namespace OriolOr.Maneko.Source.Contracts
         }
 
         public Collection<YearBalance> YearHistory;
-        public float CurrentBalance; 
+        public double CurrentBalance;
+        public string AccountNumberId;
+        public DateTime LastUpdate;
     }
 }

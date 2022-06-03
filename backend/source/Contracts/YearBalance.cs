@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 
-namespace OriolOr.Maneko.Source.Contracts
+namespace OriolOr.Maneko.Domain
 {
     public class YearBalance
     {

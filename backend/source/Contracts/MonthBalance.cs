@@ -1,6 +1,6 @@
 
 
-namespace OriolOr.Maneko.Source.Contracts
+namespace OriolOr.Maneko.Domain
 {
     public class MonthBalance
     {

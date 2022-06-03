@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OriolOr.Maneko.Services.Properties {
+namespace OriolOr.Maneko.Infrastructure.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace OriolOr.Maneko.Services.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("OriolOr.Maneko.Services.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("OriolOr.Maneko.Infrastructure.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -57,6 +57,52 @@ namespace OriolOr.Maneko.Services.Properties {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [
+        ///  {
+        ///    &quot;Month&quot;: &quot;January&quot;,
+        ///    &quot;InitialBalance&quot;: 31885.06,
+        ///    &quot;FinalBalance&quot;: 30396.86
+        ///  },
+        ///  {
+        ///    &quot;Month&quot;: &quot;February&quot;,
+        ///    &quot;InitialBalance&quot;: 32271.70,
+        ///    &quot;FinalBalance&quot;: 30447.94
+        ///  },
+        ///  {
+        ///    &quot;Month&quot;: &quot;March&quot;,
+        ///    &quot;InitialBalance&quot;: 32334.44,
+        ///    &quot;FinalBalance&quot;: 28642.47
+        ///  },
+        ///  {
+        ///    &quot;Month&quot;: &quot;April&quot;,
+        ///    &quot;InitialBalance&quot;: 31615.18,
+        ///    &quot;FinalBalance&quot;: 29876.61
+        ///  }
+        ///].
+        /// </summary>
+        internal static string BankData {
+            get {
+                return ResourceManager.GetString("BankData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [
+        ///  {
+        ///    &quot;User&quot;: &quot;oriol.orus.or@gmail.com&quot;,
+        ///    &quot;Password&quot;: &quot;04a25483b20c618b77592232e1c59570&quot;,
+        ///    &quot;AccountId&quot;: &quot;ES2230250014061400041971&quot;
+        ///  }
+        ///]
+        ///.
+        /// </summary>
+        internal static string UserData {
+            get {
+                return ResourceManager.GetString("UserData", resourceCulture);
             }
         }
     }
