@@ -3,23 +3,24 @@ using OriolOr.Maneko.Domain;
 using OriolOr.Maneko.Domain.IdentityManagement;
 using System.Collections.ObjectModel;
 
-namespace OriolOr.Maneko.Source.Services
+namespace OriolOr.Maneko.Services
 {
     public class AccountService
     {
+        public AccountDataRepository AccountDataRepository;
         
         public AccountService() {
-
+            this.AccountDataRepository = new AccountDataRepository(); 
         }
 
         public double GetCurrentBalanceFromDb(UserCredentials userCredentials)
         {
-           return MongoDbConfigurator.GetAccountCurrentBalance();
+            return AccountDataRepository.GetAccountCurrentBalance(MongoDbConfigurator.DataBase);
         }
 
         public Collection<YearBalance> GetYearBalanceFromDb(UserCredentials userCredentials)
         {
-            return MongoDbConfigurator.GetYearBalance();
+            return AccountDataRepository.GetYearBalance(MongoDbConfigurator.DataBase);
         }
    }
 }
