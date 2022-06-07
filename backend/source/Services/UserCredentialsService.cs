@@ -5,7 +5,7 @@ using System.Text;
 
 namespace OriolOr.Maneko.Services
 {
-    public class UserCredentialsService
+    public class UserCredentialsService : IUserCredentialsService
     {
         public UserDataRepository UserDataRepository; 
         public AccountDataRepository AccountDataRepository;
