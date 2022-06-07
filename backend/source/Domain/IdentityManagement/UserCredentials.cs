@@ -1,5 +1,8 @@
-﻿namespace OriolOr.Maneko.Domain.IdentityManagement
+﻿using MongoDB.Bson.Serialization.Attributes;
+
+namespace OriolOr.Maneko.Domain.IdentityManagement
 {
+    [BsonIgnoreExtraElements]
     public class UserCredentials
     {
         public string UserName;
