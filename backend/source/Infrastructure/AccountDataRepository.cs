@@ -15,7 +15,6 @@ namespace OriolOr.Maneko.Infrastructure
 
         public AccountDataRepository()
         {
-
         }
 
         public void LoadAccountData(IMongoDatabase database, UserCredentials userCredentials)
@@ -51,7 +50,6 @@ namespace OriolOr.Maneko.Infrastructure
 
         public double GetAccountCurrentBalance(IMongoDatabase database)
         {
-
             var collection = database.GetCollection<Account>(this.CollectionName);
 
             var accDocument = collection.Find(FilterDefinition<Account>.Empty).FirstOrDefault();

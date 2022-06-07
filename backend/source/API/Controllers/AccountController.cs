@@ -19,9 +19,8 @@ namespace OriolOr.Maneko.Source.API.Controllers
         }
 
         [HttpGet("GetCurrentBalance")]
-        public string GetCurrentBalance(string user , string password)
+        public IActionResult GetCurrentBalance(string user , string password)
         {
-
 
             var userCredentials = new UserCredentials()
             {
@@ -29,19 +28,18 @@ namespace OriolOr.Maneko.Source.API.Controllers
                 Password = password
             };
 
+            if (this.UserCredentialsService.CheckCredentials(userCredentials)) return Ok(JsonConvert.SerializeObject(this.AccountService.GetCurrentBalanceFromDb(userCredentials)));
 
-            this.UserCredentialsService.CheckCredentials(userCredentials);
-
-            return JsonConvert.SerializeObject(this.AccountService.GetCurrentBalanceFromDb(userCredentials));
+            else return StatusCode(StatusCodes.Status401Unauthorized);
         }
 
         [HttpGet("GetYearData")]
-        public string GetYearData(UserCredentials userCredentials)
+        public IActionResult GetYearData(UserCredentials userCredentials)
         {
 
-            this.UserCredentialsService.CheckCredentials(userCredentials);
+            if (this.UserCredentialsService.CheckCredentials(userCredentials)) return Ok(JsonConvert.SerializeObject(this.AccountService.GetYearBalanceFromDb(userCredentials).FirstOrDefault()));
 
-            return JsonConvert.SerializeObject(this.AccountService.GetYearBalanceFromDb(userCredentials).FirstOrDefault());
+            else return StatusCode(StatusCodes.Status401Unauthorized);
         }
     }
 }

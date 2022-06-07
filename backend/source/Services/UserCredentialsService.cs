@@ -16,24 +16,30 @@ namespace OriolOr.Maneko.Services
             this.AccountDataRepository = new AccountDataRepository();
         }
 
-        public void CheckCredentials(UserCredentials userCredentials)
+        public bool CheckCredentials(UserCredentials userCredentials)
         {
+            bool loginSucced;
+
             if (UserDataRepository.CheckUsernameExists(userCredentials.UserName))
             {
                 var passwordEncoded = this.UserDataRepository.GetPasswordEncoded(userCredentials.UserName);
                 if (passwordEncoded == this.EncodeMD5HashPassword(userCredentials.Password))
                 {
                     AccountDataRepository.LoadAccountData(MongoDbConfigurator.DataBase , userCredentials);
+                    loginSucced = true;
+
                 }
                 else
                 {
-                    Console.WriteLine("Wrong user or password");
+                    loginSucced = false;
                 }
 
             }
             else {
-                Console.WriteLine("Wrong user or password");
+                loginSucced = false;
             }
+
+            return loginSucced;
         }
 
 
