@@ -1,6 +1,6 @@
 ﻿using OriolOr.Maneko.Domain.IdentityManagement;
 
-namespace OriolOr.Maneko.Services
+namespace OriolOr.Maneko.Services.Interfaces
 {
     internal interface IUserCredentialsService
     {

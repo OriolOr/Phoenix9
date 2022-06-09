@@ -3,7 +3,7 @@ using OriolOr.Maneko.Domain.IdentityManagement;
 using Newtonsoft.Json;
 using OriolOr.Maneko.Services;
 
-namespace OriolOr.Maneko.Source.API.Controllers
+namespace OriolOr.Maneko.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]

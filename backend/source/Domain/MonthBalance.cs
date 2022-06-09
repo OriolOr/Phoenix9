@@ -1,5 +1,4 @@
 
-
 namespace OriolOr.Maneko.Domain
 {
     public class MonthBalance

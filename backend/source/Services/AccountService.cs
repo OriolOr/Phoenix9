@@ -2,10 +2,11 @@
 using OriolOr.Maneko.Domain;
 using OriolOr.Maneko.Domain.IdentityManagement;
 using System.Collections.ObjectModel;
+using OriolOr.Maneko.Services.Interfaces;
 
 namespace OriolOr.Maneko.Services
 {
-    public class AccountService
+    public class AccountService : IAccountService
     {
         public AccountDataRepository AccountDataRepository;
         

@@ -1,5 +1,6 @@
 ﻿using OriolOr.Maneko.Domain.IdentityManagement;
 using OriolOr.Maneko.Infrastructure;
+using OriolOr.Maneko.Services.Interfaces;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -27,21 +28,15 @@ namespace OriolOr.Maneko.Services
                 {
                     AccountDataRepository.LoadAccountData(MongoDbConfigurator.DataBase , userCredentials);
                     loginSucced = true;
-
                 }
-                else
-                {
-                    loginSucced = false;
-                }
+                else loginSucced = false;
+                
+            }
+            else  loginSucced = false;
 
-            }
-            else {
-                loginSucced = false;
-            }
 
             return loginSucced;
         }
-
 
         private string EncodeMD5HashPassword(string password)
         {
