@@ -3,14 +3,15 @@ using Newtonsoft.Json;
 using OriolOr.Maneko.Domain;
 using OriolOr.Maneko.Domain.IdentityManagement;
 using OriolOr.Maneko.ExternalCom;
+using OriolOr.Maneko.Infrastructure.Interfaces;
 using OriolOr.Maneko.Infrastructure.Properties;
 using System.Collections.ObjectModel;
 
 namespace OriolOr.Maneko.Infrastructure
 {
-    public class AccountDataRepository
+    public class AccountDataRepository : IAccountDataRepository
     {
-        public string CollectionName = "AccountData";
+        public string CollectionName => "AccountData";
         private readonly IMongoCollection<Account> UserDataCollection;
 
         public AccountDataRepository()

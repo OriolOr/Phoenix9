@@ -1,14 +1,15 @@
 ﻿using MongoDB.Driver;
 using Newtonsoft.Json;
 using OriolOr.Maneko.Domain.IdentityManagement;
+using OriolOr.Maneko.Infrastructure.Interfaces;
 using OriolOr.Maneko.Infrastructure.Properties;
 using System.Collections.ObjectModel;
 
 namespace OriolOr.Maneko.Infrastructure
 {
-    public  class UserDataRepository
+    public  class UserDataRepository : IUserDataRepository
     {
-        public string CollectionName = "UserData";
+        public string CollectionName => "UserData";
         private readonly IMongoCollection<UserCredentials> UserDataCollection;
 
         public UserDataRepository(IMongoDatabase database)
@@ -44,13 +45,8 @@ namespace OriolOr.Maneko.Infrastructure
 
         }
 
-        public string GetPasswordEncoded(string userName)
-        {
-
-            var loginCredentials = this.UserDataCollection.Find(usr => usr.UserName == userName).FirstOrDefault<UserCredentials>();
-
-            return loginCredentials.Password;
-        }
+        public string GetPasswordEncoded(string userName) 
+            => this.UserDataCollection.Find(usr => usr.UserName == userName).FirstOrDefault<UserCredentials>().Password;
 
     }
 }

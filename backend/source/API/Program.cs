@@ -1,5 +1,5 @@
 using OriolOr.Maneko.Infrastructure;
-
+using OriolOr.Maneko.Infrastructure.Extensions;
 
 namespace OriolOr.Maneko.API
 {
@@ -7,11 +7,14 @@ namespace OriolOr.Maneko.API
     {
         static void Main(string[] args)
         {
+            // Add services to the container.
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            //RepositoryExtensions.AddRepositoryServices(builder.Services);
 
             var app = builder.Build();
 
