@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using OriolOr.Maneko.Domain.IdentityManagement;
 using Newtonsoft.Json;
-using OriolOr.Maneko.Services;
+using OriolOr.Maneko.Domain.IdentityManagement;
+using OriolOr.Maneko.Services.Interfaces;
+
 
 namespace OriolOr.Maneko.API.Controllers
 {
@@ -9,13 +10,13 @@ namespace OriolOr.Maneko.API.Controllers
     [Route("[controller]")]
     public class AccountController : ControllerBase
     {
-        public AccountService AccountService;
-        public UserCredentialsService UserCredentialsService;
+        public IAccountService AccountService;
+        public IUserCredentialsService UserCredentialsService;
 
-        public AccountController()
+        public AccountController(IAccountService accountService, IUserCredentialsService userCredentialsService)
         {
-            this.AccountService = new AccountService();
-            this.UserCredentialsService = new UserCredentialsService();
+            this.AccountService = accountService;
+            this.UserCredentialsService = userCredentialsService;
         }
 
         [HttpGet("GetCurrentBalance")]

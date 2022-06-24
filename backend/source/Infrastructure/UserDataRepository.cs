@@ -20,13 +20,12 @@ namespace OriolOr.Maneko.Infrastructure
         public void LoadUserData(IMongoDatabase database)
         {
 
-            var collection = database.GetCollection<UserCredentials>(this.CollectionName);
-            var nDocuments = collection.CountDocuments(FilterDefinition<UserCredentials>.Empty);
+            var nDocuments = this.UserDataCollection.CountDocuments(FilterDefinition<UserCredentials>.Empty);
 
             if (nDocuments == 0)
             {
                 UserCredentials userData = JsonConvert.DeserializeObject<Collection<UserCredentials>>(Resources.UserData).FirstOrDefault();
-                collection.InsertOne(userData);
+                this.UserDataCollection.InsertOne(userData);
             }
 
         }

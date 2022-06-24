@@ -9,6 +9,7 @@ namespace OriolOr.Maneko.Infrastructure
         public static IMongoDatabase? DataBase;
 
         public static void InitializeDataBase() {
+
             MongoClient = new MongoClient("mongodb://localhost:27017");
             DataBase = MongoClient.GetDatabase("ManekoDataBase");
 

@@ -1,5 +1,8 @@
 using OriolOr.Maneko.Infrastructure;
-using OriolOr.Maneko.Infrastructure.Extensions;
+using OriolOr.Maneko.Infrastructure.Interfaces;
+using OriolOr.Maneko.Services;
+using OriolOr.Maneko.Services.Interfaces;
+using OriolOr.Maneko.Services.Extensions;
 
 namespace OriolOr.Maneko.API
 {
@@ -14,7 +17,9 @@ namespace OriolOr.Maneko.API
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            //RepositoryExtensions.AddRepositoryServices(builder.Services);
+            //Extensions 
+            //builder.Services.AddScoped<IUserDataRepository, UserDataRepository>();
+            builder.Services.AddServices();
 
             var app = builder.Build();
 
