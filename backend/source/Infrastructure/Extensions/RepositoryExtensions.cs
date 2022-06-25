@@ -5,7 +5,7 @@ namespace OriolOr.Maneko.Infrastructure.Extensions
 {
     public static class RepositoryExtensions
     {
-        public static IServiceCollection AddRepositoryServices(IServiceCollection services)
+        public static IServiceCollection AddRepositoryServices(this IServiceCollection services)
         {
             services.AddSingleton<IAccountDataRepository, AccountDataRepository>()
                     .AddSingleton<IUserDataRepository, UserDataRepository>();

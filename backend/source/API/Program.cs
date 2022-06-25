@@ -3,6 +3,7 @@ using OriolOr.Maneko.Infrastructure.Interfaces;
 using OriolOr.Maneko.Services;
 using OriolOr.Maneko.Services.Interfaces;
 using OriolOr.Maneko.Services.Extensions;
+using OriolOr.Maneko.Infrastructure.Extensions;
 
 namespace OriolOr.Maneko.API
 {
@@ -19,7 +20,9 @@ namespace OriolOr.Maneko.API
 
             //Extensions 
             //builder.Services.AddScoped<IUserDataRepository, UserDataRepository>();
+            //builder.Services.AddScoped<IAccountDataRepository, AccountDataRepository>();
             builder.Services.AddServices();
+            builder.Services.AddRepositoryServices();
 
             var app = builder.Build();
 

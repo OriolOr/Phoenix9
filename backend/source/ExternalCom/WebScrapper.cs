@@ -73,8 +73,8 @@ namespace OriolOr.Maneko.ExternalCom
         }
 
         public void Dispose()
-        {
-            this.Driver.Close();
-        }
+
+           => this.Driver.Close();
+        
     }
 }
