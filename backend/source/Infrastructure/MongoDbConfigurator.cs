@@ -1,5 +1,4 @@
 ﻿using MongoDB.Driver;
-using OriolOr.Maneko.Infrastructure.Interfaces;
 
 namespace OriolOr.Maneko.Infrastructure
 {
@@ -13,7 +12,7 @@ namespace OriolOr.Maneko.Infrastructure
             MongoClient = new MongoClient("mongodb://localhost:27017");
             DataBase = MongoClient.GetDatabase("ManekoDataBase");
 
-            UserDataRepository userDataRepository = new UserDataRepository(DataBase);
+            UserDataRepository userDataRepository = new UserDataRepository();
             AccountDataRepository accountDataRepository = new AccountDataRepository();
 
             InitializeMongoDbCollection(DataBase, accountDataRepository.CollectionName);

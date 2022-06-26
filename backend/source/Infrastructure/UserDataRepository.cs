@@ -7,14 +7,14 @@ using System.Collections.ObjectModel;
 
 namespace OriolOr.Maneko.Infrastructure
 {
-    public  class UserDataRepository : IUserDataRepository
+    public class UserDataRepository : IUserDataRepository
     {
         public string CollectionName => "UserData";
-        private readonly IMongoCollection<UserCredentials> UserDataCollection;
+        private IMongoCollection<UserCredentials> UserDataCollection;
 
-        public UserDataRepository(IMongoDatabase database)
+        public UserDataRepository()
         {
-            this.UserDataCollection = database.GetCollection<UserCredentials>(this.CollectionName);
+            this.UserDataCollection = MongoDbConfigurator.DataBase.GetCollection<UserCredentials>(this.CollectionName);
         }
 
         public void LoadUserData(IMongoDatabase database)
@@ -43,7 +43,6 @@ namespace OriolOr.Maneko.Infrastructure
             return docFind;
 
         }
-
         public string GetPasswordEncoded(string userName) 
             => this.UserDataCollection.Find(usr => usr.UserName == userName).FirstOrDefault<UserCredentials>().Password;
 

@@ -19,10 +19,8 @@ namespace OriolOr.Maneko.API
             builder.Services.AddSwaggerGen();
 
             //Extensions 
-            //builder.Services.AddScoped<IUserDataRepository, UserDataRepository>();
-            //builder.Services.AddScoped<IAccountDataRepository, AccountDataRepository>();
-            builder.Services.AddServices();
-            builder.Services.AddRepositoryServices();
+            builder.Services.AddServices()
+                            .AddRepositoryServices();
 
             var app = builder.Build();
 

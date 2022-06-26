@@ -8,8 +8,8 @@ namespace OriolOr.Maneko.Services.Extensions
     {
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
-            services.AddSingleton<IAccountService, AccountService>()
-                    .AddSingleton<IUserCredentialsService, UserCredentialsService>();
+            services.AddScoped<IAccountService, AccountService>()
+                    .AddScoped<IUserCredentialsService, UserCredentialsService>();
 
             return services;
         }

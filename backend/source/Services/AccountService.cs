@@ -3,15 +3,16 @@ using OriolOr.Maneko.Domain;
 using OriolOr.Maneko.Domain.IdentityManagement;
 using System.Collections.ObjectModel;
 using OriolOr.Maneko.Services.Interfaces;
+using OriolOr.Maneko.Infrastructure.Interfaces;
 
 namespace OriolOr.Maneko.Services
 {
     public class AccountService : IAccountService
     {
-        public AccountDataRepository AccountDataRepository;
+        public IAccountDataRepository AccountDataRepository;
         
-        public AccountService() {
-            this.AccountDataRepository = new AccountDataRepository(); 
+        public AccountService(IAccountDataRepository accountDataRepository) {
+            this.AccountDataRepository = accountDataRepository;
         }
 
         public double GetCurrentBalanceFromDb(UserCredentials userCredentials)

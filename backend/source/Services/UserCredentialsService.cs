@@ -1,5 +1,6 @@
 ﻿using OriolOr.Maneko.Domain.IdentityManagement;
 using OriolOr.Maneko.Infrastructure;
+using OriolOr.Maneko.Infrastructure.Interfaces;
 using OriolOr.Maneko.Services.Interfaces;
 using System.Security.Cryptography;
 using System.Text;
@@ -8,13 +9,13 @@ namespace OriolOr.Maneko.Services
 {
     public class UserCredentialsService : IUserCredentialsService
     {
-        public UserDataRepository UserDataRepository; 
-        public AccountDataRepository AccountDataRepository;
+        public IUserDataRepository UserDataRepository; 
+        public IAccountDataRepository AccountDataRepository;
 
-        public UserCredentialsService()
+        public UserCredentialsService(IUserDataRepository userDataRepository, IAccountDataRepository accountDataRepository)
         {
-            this.UserDataRepository = new UserDataRepository(MongoDbConfigurator.DataBase);
-            this.AccountDataRepository = new AccountDataRepository();
+            this.UserDataRepository = userDataRepository;
+            this.AccountDataRepository = accountDataRepository;
         }
 
         public bool CheckCredentials(UserCredentials userCredentials)
