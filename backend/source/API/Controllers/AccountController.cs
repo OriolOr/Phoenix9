@@ -35,9 +35,13 @@ namespace OriolOr.Maneko.API.Controllers
         }
 
         [HttpGet("GetYearData")]
-        public IActionResult GetYearData(UserCredentials userCredentials)
+        public IActionResult GetYearData(string user, string password)
         {
-
+            var userCredentials = new UserCredentials()
+            {
+                UserName = user,
+                Password = password
+            };
             if (this.UserCredentialsService.CheckCredentials(userCredentials)) return Ok(JsonConvert.SerializeObject(this.AccountService.GetYearBalanceFromDb(userCredentials).FirstOrDefault()));
 
             else return StatusCode(StatusCodes.Status401Unauthorized);
