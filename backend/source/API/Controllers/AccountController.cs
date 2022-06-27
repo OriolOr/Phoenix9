@@ -1,34 +1,50 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using OriolOr.Maneko.Source.Services;
-using OriolOr.Maneko.Source.Contracts;
 using Newtonsoft.Json;
+using OriolOr.Maneko.Domain.IdentityManagement;
+using OriolOr.Maneko.Services.Interfaces;
 
-namespace OriolOr.Maneko.Source.API.Controllers
+
+namespace OriolOr.Maneko.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
     public class AccountController : ControllerBase
     {
-        public Account account;
-        public StatsManager stats;
+        public IAccountService AccountService;
+        public IUserCredentialsService UserCredentialsService;
 
-        public AccountController()
+        public AccountController(IAccountService accountService, IUserCredentialsService userCredentialsService)
         {
-            this.account = new Account();
-            this.stats = new StatsManager(this.account);
-            DataManager.LoadJsonData(account);
+            this.AccountService = accountService;
+            this.UserCredentialsService = userCredentialsService;
         }
 
         [HttpGet("GetCurrentBalance")]
-        public string GetCurrentBalance(string user, string password)
+        public IActionResult GetCurrentBalance(string user , string password)
         {
-            return JsonConvert.SerializeObject(this.stats.GetCurrentBalance(user, password));
+
+            var userCredentials = new UserCredentials()
+            {
+                UserName = user,
+                Password = password
+            };
+
+            if (this.UserCredentialsService.CheckCredentials(userCredentials)) return Ok(JsonConvert.SerializeObject(this.AccountService.GetCurrentBalanceFromDb(userCredentials)));
+
+            else return StatusCode(StatusCodes.Status401Unauthorized);
         }
 
         [HttpGet("GetYearData")]
-        public string GetYearData()
+        public IActionResult GetYearData(string user, string password)
         {
-            return JsonConvert.SerializeObject(this.account.YearHistory.FirstOrDefault());
+            var userCredentials = new UserCredentials()
+            {
+                UserName = user,
+                Password = password
+            };
+            if (this.UserCredentialsService.CheckCredentials(userCredentials)) return Ok(JsonConvert.SerializeObject(this.AccountService.GetYearBalanceFromDb(userCredentials).FirstOrDefault()));
+
+            else return StatusCode(StatusCodes.Status401Unauthorized);
         }
     }
 }
