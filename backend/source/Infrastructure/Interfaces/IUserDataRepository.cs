@@ -8,5 +8,6 @@ namespace OriolOr.Maneko.Infrastructure.Interfaces
         public bool CheckUsernameExists(string userName);
         public string GetPasswordEncoded(string userName);
         public void LoadUserData(IMongoDatabase database);
+
     }
 }
