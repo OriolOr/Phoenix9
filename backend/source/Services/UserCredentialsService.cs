@@ -27,7 +27,7 @@ namespace OriolOr.Maneko.Services
                 var passwordEncoded = this.UserDataRepository.GetPasswordEncoded(userCredentials.UserName);
                 if (passwordEncoded == this.EncodeMD5HashPassword(userCredentials.Password))
                 {
-                    AccountDataRepository.LoadAccountData(MongoDbConfigurator.DataBase , userCredentials);
+                    AccountDataRepository.LoadAccountData(MongoDbConfigurator.DataBase, userCredentials);
                     loginSucced = true;
                 }
                 else loginSucced = false;

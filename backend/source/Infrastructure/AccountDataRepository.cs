@@ -46,7 +46,7 @@ namespace OriolOr.Maneko.Infrastructure
 
                 account.YearHistory.Add(newYearBalance);
 
-                //iNSERT TO DATABASE
+                //INSERT TO DATABASE
                 if (this.CheckAccountIdExists(database, account.AccountNumberId))
                 {
                     //Update existing element in database 
