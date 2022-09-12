@@ -18,5 +18,25 @@
     "Month": "April",
     "InitialBalance": 31615.18,
     "FinalBalance": 29876.61
+  },
+  {
+    "Month": "May",
+    "InitialBalance": 31800.16,
+    "FinalBalance": 30702.18
+  },
+  {
+    "Month": "June",
+    "InitialBalance": 32624.65,
+    "FinalBalance": 30900.86
+  },
+  {
+    "Month": "July",
+    "InitialBalance": 34771.35,
+    "FinalBalance": 31339.71
+  },
+  {
+    "Month": "August",
+    "InitialBalance": 33277.52,
+    "FinalBalance": 31179.50
   }
 ]
