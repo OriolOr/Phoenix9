@@ -1,7 +1,4 @@
 using OriolOr.Maneko.Infrastructure;
-using OriolOr.Maneko.Infrastructure.Interfaces;
-using OriolOr.Maneko.Services;
-using OriolOr.Maneko.Services.Interfaces;
 using OriolOr.Maneko.Services.Extensions;
 using OriolOr.Maneko.Infrastructure.Extensions;
 
