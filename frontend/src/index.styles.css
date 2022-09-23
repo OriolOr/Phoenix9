@@ -1,0 +1,19 @@
+.appContainer {
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+  width: 100vw;
+  flex-direction: column;
+  align-items: center;
+}
+
+html,body{
+  margin:0;
+  padding:0;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+

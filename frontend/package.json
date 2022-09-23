@@ -1,7 +1,7 @@
 {
-  "name": "react-example",
-  "version": "1.0.0",
-  "description": "",
+  "name": "maneko",
+  "version": "0.1.0",
+  "description": "mnk ",
   "main": "index.js",
   "scripts": {
     "start": "run-p -l type-check:watch start:dev",

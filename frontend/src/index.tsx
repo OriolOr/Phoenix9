@@ -1,9 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import App from "./app"
+import "./index.styles.css"
 
 ReactDOM.render(
-  <div>
-    <p>Maneko</p>
-  </div>,
+    <App />,
   document.getElementById("root")
 );
+
