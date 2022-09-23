@@ -3,7 +3,7 @@ import Footer  from "./components/footer/footer";
 import Header from "./components/header/header";
 import Login  from "./components/login/login";
 
-export const App = () => {
+export const App:React.FC = () => {
   
   return(
     <div className = "appContainer">
