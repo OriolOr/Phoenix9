@@ -93,7 +93,7 @@ namespace OriolOr.Maneko.Infrastructure.Properties {
         /// <summary>
         ///   Looks up a localized string similar to [
         ///  {
-        ///    &quot;User&quot;: &quot;oriol.orus.or@gmail.com&quot;,
+        ///    &quot;UserName&quot;: &quot;oriol.orus.or@gmail.com&quot;,
         ///    &quot;Password&quot;: &quot;04a25483b20c618b77592232e1c59570&quot;,
         ///    &quot;AccountId&quot;: &quot;ES2230250014061400041971&quot;
         ///  }

@@ -56,13 +56,13 @@ namespace OriolOr.Maneko.ExternalCom
         private void Login()
         {
             UserInput.SendKeys(this.UserCredentials.UserName);
-            Thread.Sleep(500);
+            Thread.Sleep(300);
 
             PasswordInput.SendKeys(this.UserCredentials.Password);
-            Thread.Sleep(500);
+            Thread.Sleep(300);
 
             SubmitButtonCredentials.Click();
-            Thread.Sleep(500);
+            Thread.Sleep(300);
 
         }
 
