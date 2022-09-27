@@ -30,6 +30,7 @@ namespace OriolOr.Maneko.API
                 app.UseSwaggerUI();
             }
 
+            app.UseCors(options => options.WithOrigins("*").AllowAnyMethod().AllowAnyHeader());
             app.UseHttpsRedirection();
 
             app.UseAuthorization();

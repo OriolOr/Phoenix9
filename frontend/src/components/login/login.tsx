@@ -1,13 +1,12 @@
 import React, { useState } from "react";
+import Axios, { AxiosResponse } from "axios";
 import "./login.styles.css"
 
 
 const Login:React.FC = () => {
   
-
   const [userName , setUserName] = useState('');
   const [userPassword, setUserPassword] = useState('');
-  const url = "http://localhost:5050";
 
     return(   
     <div className="loginContainer">
@@ -17,10 +16,25 @@ const Login:React.FC = () => {
     </div>)
   
     function HandleLogin () {
-      console.log (userName);
-      console.log(userPassword);
+
+      const url = ["https://localhost:7171/Account/GetCurrentBalance?user=" + userName +"&password="+ userPassword].join();
+      console.log(url);
+      Axios.get(url).catch().then(function (response) {
+         
+        CheckResponseStatus(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });;
     };
 
+    function CheckResponseStatus(response:AxiosResponse){
+      
+      if (response.status == 200){
+        console.log("OK")
+        console.log(response.data);
+      }
+    }
 };
 
 export default Login;
