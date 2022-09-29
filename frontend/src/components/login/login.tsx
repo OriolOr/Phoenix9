@@ -7,14 +7,16 @@ const Login:React.FC = () => {
   
   const [userName , setUserName] = useState('');
   const [userPassword, setUserPassword] = useState('');
+  const [userBalance ,setUserBalance] = useState('Log in to get current balance');
 
     return(   
     <div className="loginContainer">
       <input type="text" onChange={(e) => setUserName(e.target.value)}></input>
       <input type="password" onChange={(e)=> setUserPassword(e.target.value)}></input>
       <input type="submit" value="Log In" onClick={HandleLogin}></input>
+      <h1>{userBalance}</h1>
     </div>)
-  
+
     function HandleLogin () {
 
       const url = ["https://localhost:7171/Account/GetCurrentBalance?user=" + userName +"&password="+ userPassword].join();
@@ -32,8 +34,10 @@ const Login:React.FC = () => {
       
       if (response.status == 200){
         console.log("OK")
-        console.log(response.data);
+        setUserBalance(response.data+' €');
       }
+      else if (response.status == 401)
+        setUserBalance("Login error");
     }
 };
 
