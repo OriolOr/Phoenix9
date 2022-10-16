@@ -1,10 +1,17 @@
 version: "3.7"
 services:
   mongo:
-    container_name: mongodb
+    container_name: database_maneko
     image: mongo
     ports:
       - "27017:27017"
+  
+  frontend: 
+    container_name: frontend_maneko
+    image: frontend:latest
+    ports:
+      - "3000:8080"
+
 
 
       
