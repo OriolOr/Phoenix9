@@ -19,7 +19,7 @@ const Login:React.FC = () => {
 
     function HandleLogin () {
 
-      const url = ["https://localhost:7171/Account/GetCurrentBalance?user=" + userName +"&password="+ userPassword].join();
+      const url = ["http://backend:5000/Account/GetCurrentBalance?user=" + userName +"&password="+ userPassword].join();
 
       Axios.get(url).catch().then(function (response) {
         CheckResponseStatus(response);

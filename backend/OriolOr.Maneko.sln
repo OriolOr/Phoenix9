@@ -5,15 +5,7 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{94112010-9D5A-487C-A0CA-69EFE58290AE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OriolOr.Maneko.Domain", "source\Domain\OriolOr.Maneko.Domain.csproj", "{60FAFD5D-BC08-48FF-B61F-FE66EFEBD504}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OriolOr.Maneko.API", "source\API\OriolOr.Maneko.API.csproj", "{84E14E33-7E62-4C9F-AFE8-DB2175D157C1}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OriolOr.Maneko.ExternalCom", "source\ExternalCom\OriolOr.Maneko.ExternalCom.csproj", "{144532E5-01EE-48C3-AB71-74933FF92ECC}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OriolOr.Maneko.Infrastructure", "source\Infrastructure\OriolOr.Maneko.Infrastructure.csproj", "{76543F7F-A19C-489C-A5EE-98B3BD85263E}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OriolOr.Maneko.Services", "source\Services\OriolOr.Maneko.Services.csproj", "{A8D08F46-E5D9-4D1D-88A6-2CFB63B77C52}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,36 +13,16 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{60FAFD5D-BC08-48FF-B61F-FE66EFEBD504}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{60FAFD5D-BC08-48FF-B61F-FE66EFEBD504}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{60FAFD5D-BC08-48FF-B61F-FE66EFEBD504}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{60FAFD5D-BC08-48FF-B61F-FE66EFEBD504}.Release|Any CPU.Build.0 = Release|Any CPU
 		{84E14E33-7E62-4C9F-AFE8-DB2175D157C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{84E14E33-7E62-4C9F-AFE8-DB2175D157C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84E14E33-7E62-4C9F-AFE8-DB2175D157C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84E14E33-7E62-4C9F-AFE8-DB2175D157C1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{144532E5-01EE-48C3-AB71-74933FF92ECC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{144532E5-01EE-48C3-AB71-74933FF92ECC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{144532E5-01EE-48C3-AB71-74933FF92ECC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{144532E5-01EE-48C3-AB71-74933FF92ECC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{76543F7F-A19C-489C-A5EE-98B3BD85263E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{76543F7F-A19C-489C-A5EE-98B3BD85263E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{76543F7F-A19C-489C-A5EE-98B3BD85263E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{76543F7F-A19C-489C-A5EE-98B3BD85263E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A8D08F46-E5D9-4D1D-88A6-2CFB63B77C52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A8D08F46-E5D9-4D1D-88A6-2CFB63B77C52}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A8D08F46-E5D9-4D1D-88A6-2CFB63B77C52}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A8D08F46-E5D9-4D1D-88A6-2CFB63B77C52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{60FAFD5D-BC08-48FF-B61F-FE66EFEBD504} = {94112010-9D5A-487C-A0CA-69EFE58290AE}
 		{84E14E33-7E62-4C9F-AFE8-DB2175D157C1} = {94112010-9D5A-487C-A0CA-69EFE58290AE}
-		{144532E5-01EE-48C3-AB71-74933FF92ECC} = {94112010-9D5A-487C-A0CA-69EFE58290AE}
-		{76543F7F-A19C-489C-A5EE-98B3BD85263E} = {94112010-9D5A-487C-A0CA-69EFE58290AE}
-		{A8D08F46-E5D9-4D1D-88A6-2CFB63B77C52} = {94112010-9D5A-487C-A0CA-69EFE58290AE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F490FAF1-4C04-489D-ADE4-455DF8FE30B3}
