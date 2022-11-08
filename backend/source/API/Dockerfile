@@ -21,6 +21,7 @@ FROM build AS publish
 RUN dotnet publish "OriolOr.Maneko.API.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
+
 WORKDIR /app
 ENV ASPNETCORE_URLS=http://+:5000
 COPY --from=publish /app/publish .

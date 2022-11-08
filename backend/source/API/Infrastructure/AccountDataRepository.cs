@@ -28,16 +28,24 @@ namespace OriolOr.Maneko.API.Infrastructure
              
             if (accDocumentLastUpdate.Day != DateTime.Now.Day)
             {
-
-                WebScrapper webscrapper = new WebScrapper(userCredentials);
-
-                //CREATE ACCOUNT OBJECT 
-                Account account = new Account()
+                Account account = new Account();
+                account.LastUpdate = DateTime.Now;
+                try
                 {
-                    CurrentBalance = webscrapper.ScrapCurrentBalance(),
-                    AccountNumberId = webscrapper.ScrapAccountId(),
-                    LastUpdate = DateTime.Now
-                };
+                    WebScrapper webscrapper = new WebScrapper(userCredentials);
+
+                    //CREATE ACCOUNT OBJECT 
+
+                    account.CurrentBalance = webscrapper.ScrapCurrentBalance();
+                    account.AccountNumberId = webscrapper.ScrapAccountId();
+
+                }
+                catch (Exception e)
+                {
+                    account.CurrentBalance = 0;
+                    account.AccountNumberId = "AA0000000000000000000000";
+                }
+
 
                 //CREATE OBJECT TO BE INSERED IN DATABASE 
                 var newYearBalance = new YearBalance();

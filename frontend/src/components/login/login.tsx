@@ -19,18 +19,18 @@ const Login:React.FC = () => {
 
     function HandleLogin () {
 
-      const url = ["http://backend:5000/Account/GetCurrentBalance?user=" + userName +"&password="+ userPassword].join();
+      const url = ["http://localhost:5000/Account/GetCurrentBalance?user=" + userName +"&password="+ userPassword].join();
 
-      Axios.get(url).catch().then(function (response) {
-        CheckResponseStatus(response);
-      })
+      console.log("eahtfaejkgha");
+      Axios.get(url).then(response => CheckResponseStatus(response))
       .catch(function (error) {
         console.log(error);
+        setUserBalance("Login error");
       });
     };
 
     function CheckResponseStatus(response:AxiosResponse){
-      
+      console.log("entro en el estatus");
       if (response.status == 200){
         console.log("OK")
         setUserBalance(response.data +' €');
