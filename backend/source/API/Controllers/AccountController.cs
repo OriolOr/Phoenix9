@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using OriolOr.Maneko.Domain.IdentityManagement;
-using OriolOr.Maneko.Services.Interfaces;
+using OriolOr.Maneko.API.Models.IdentityManagement;
+using OriolOr.Maneko.API.Service.Interfaces;
 
 
 namespace OriolOr.Maneko.API.Controllers

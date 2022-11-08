@@ -1,7 +1,7 @@
-using OriolOr.Maneko.Infrastructure;
-using OriolOr.Maneko.Services.Extensions;
+using OriolOr.Maneko.API.Infrastructure;
+using OriolOr.Maneko.API.Service.Extensions;
 using OriolOr.Maneko.Infrastructure.Extensions;
-
+ 
 namespace OriolOr.Maneko.API
 {
     class Program
