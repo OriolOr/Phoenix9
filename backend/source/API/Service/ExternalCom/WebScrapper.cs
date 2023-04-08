@@ -1,9 +1,9 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OriolOr.Maneko.API.Models.IdentityManagement;
+using OriolOr.Maneko.API.Domain.IdentityManagement;
 using System.Globalization;
 
-namespace OriolOr.Maneko.API.ExternalCom
+namespace OriolOr.Maneko.API.Service.ExternalCom
 {
     internal class WebScrapper : IDisposable
     {

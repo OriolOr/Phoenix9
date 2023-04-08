@@ -1,9 +1,9 @@
-﻿using OriolOr.Maneko.API.Models.IdentityManagement;
+﻿using OriolOr.Maneko.API.Domain.IdentityManagement;
 
 namespace OriolOr.Maneko.API.Service.Interfaces
 {
     public interface IUserCredentialsService
     {
-        public bool CheckCredentials(UserCredentials userCredentials);
+        public bool Authenticate(UserCredentials userCredentials);
     }
 }

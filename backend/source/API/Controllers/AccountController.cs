@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using OriolOr.Maneko.API.Models.IdentityManagement;
+using OriolOr.Maneko.API.Domain.IdentityManagement;
 using OriolOr.Maneko.API.Service.Interfaces;
 
 
@@ -19,6 +19,7 @@ namespace OriolOr.Maneko.API.Controllers
             this.UserCredentialsService = userCredentialsService;
         }
 
+ 
         [HttpGet("GetCurrentBalance")]
         public IActionResult GetCurrentBalance(string user , string password)
         {
@@ -29,7 +30,7 @@ namespace OriolOr.Maneko.API.Controllers
                 Password = password
             };
 
-            if (this.UserCredentialsService.CheckCredentials(userCredentials)) return Ok(JsonConvert.SerializeObject(this.AccountService.GetCurrentBalanceFromDb(userCredentials)));
+            if (this.UserCredentialsService.Authenticate(userCredentials)) return Ok(JsonConvert.SerializeObject(this.AccountService.GetCurrentBalanceFromDb(userCredentials)));
 
             else return StatusCode(StatusCodes.Status401Unauthorized);
         }

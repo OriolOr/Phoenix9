@@ -1,4 +1,4 @@
-﻿using OriolOr.Maneko.API.Models.IdentityManagement;
+﻿using OriolOr.Maneko.API.Domain.IdentityManagement;
 using OriolOr.Maneko.API.Infrastructure;
 using OriolOr.Maneko.API.Infrastructure.Interfaces;
 using OriolOr.Maneko.API.Service.Interfaces;
@@ -18,7 +18,7 @@ namespace OriolOr.Maneko.API.Service
             this.AccountDataRepository = accountDataRepository;
         }
 
-        public bool CheckCredentials(UserCredentials userCredentials)
+        public bool Authenticate(UserCredentials userCredentials)
         {
             bool loginSucced;
 
@@ -38,6 +38,8 @@ namespace OriolOr.Maneko.API.Service
 
             return loginSucced;
         }
+
+        private void GenerateToken() { }
 
         private string EncodeMD5HashPassword(string password)
         {

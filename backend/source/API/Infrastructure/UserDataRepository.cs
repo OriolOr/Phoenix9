@@ -1,6 +1,6 @@
 ﻿using MongoDB.Driver;
 using Newtonsoft.Json;
-using OriolOr.Maneko.API.Models.IdentityManagement;
+using OriolOr.Maneko.API.Domain.IdentityManagement;
 using OriolOr.Maneko.API.Infrastructure.Interfaces;
 using System.Collections.ObjectModel;
 using OriolOr.Maneko.API.Properties;
@@ -29,6 +29,9 @@ namespace OriolOr.Maneko.API.Infrastructure
             }
 
         }
+
+        public string GenerateToken() => "token";
+
 
         public bool CheckUsernameExists(string userName)
         {

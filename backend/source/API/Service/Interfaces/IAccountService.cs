@@ -1,5 +1,5 @@
-﻿using OriolOr.Maneko.API.Models;
-using OriolOr.Maneko.API.Models.IdentityManagement;
+﻿using OriolOr.Maneko.API.Domain;
+using OriolOr.Maneko.API.Domain.IdentityManagement;
 using System.Collections.ObjectModel;
 
 namespace OriolOr.Maneko.API.Service.Interfaces
