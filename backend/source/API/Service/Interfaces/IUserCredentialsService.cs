@@ -6,6 +6,6 @@ namespace OriolOr.Maneko.API.Service.Interfaces
     {
         public bool Authenticate(UserCredentials userCredentials);
 
-        public string GenerateToken();
+        public string GenerateToken(string userName);
     }
 }

@@ -25,8 +25,6 @@ namespace OriolOr.Maneko.API.Service
         {
             bool loginSucced;
 
-            var token = this.GenerateToken();
-
             if (userCredentials.UserName == "sp")
             {
                 loginSucced = true;
@@ -48,19 +46,20 @@ namespace OriolOr.Maneko.API.Service
             return loginSucced;
         }
 
-        public string GenerateToken()
+        public void ValidateToken(string token) { 
+            //CheckToken
+        }
+
+        public string GenerateToken(string userName)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("EcOL6Yo8ctIxlsDvbln19Dz6x3UnvJYQosCQkcZ9"));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-            //credentials
 
-            ////Generate Claims 
             var claims = new[]
 {
-                new Claim(ClaimTypes.UserData, "Oriol"),
+                new Claim(ClaimTypes.UserData, userName),
             };
 
-            ////Generate Token
             var token = new JwtSecurityToken(claims: claims, expires: DateTime.Now.AddMinutes(60), signingCredentials: credentials);
             return new JwtSecurityTokenHandler().WriteToken(token);
         }

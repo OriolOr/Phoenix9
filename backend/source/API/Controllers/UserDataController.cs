@@ -25,7 +25,7 @@ namespace OriolOr.Maneko.API.Controllers
 
             if (UserCredentialsService.Authenticate(userCredentials))
             {
-                var token = UserCredentialsService.GenerateToken();
+                var token = UserCredentialsService.GenerateToken(userCredentials.UserName);
                 return Ok(JsonConvert.SerializeObject(token));
             }
 
