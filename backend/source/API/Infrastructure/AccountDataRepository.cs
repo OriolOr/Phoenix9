@@ -67,6 +67,10 @@ namespace OriolOr.Maneko.API.Infrastructure
             }
         }
 
+
+        //toDo
+        public void GetAccountTokens 
+
         public double GetAccountCurrentBalance(IMongoDatabase database)
         {
             var collection = database.GetCollection<Account>(this.CollectionName);

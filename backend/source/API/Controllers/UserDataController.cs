@@ -15,7 +15,7 @@ namespace OriolOr.Maneko.API.Controllers
         }
 
         [HttpGet("GetLoginCredentials")]
-        public IActionResult GetLoginCredentials() {
+        public IActionResult GetLoginCredentials(string userName, string password) {
 
             var userCredentials = new UserCredentials()
             {

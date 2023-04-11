@@ -35,6 +35,8 @@ namespace OriolOr.Maneko.API.Controllers
             else return StatusCode(StatusCodes.Status401Unauthorized);
         }
 
+        
+
         [HttpGet("GetYearData")]
         public IActionResult GetYearData(string user, string password)
         {

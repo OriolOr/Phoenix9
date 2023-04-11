@@ -30,7 +30,15 @@ namespace OriolOr.Maneko.API.Infrastructure
 
         }
 
-        public string GenerateToken() => "token";
+
+        //toDo
+        public void SetUserToken(string userName)
+        {
+            var userDoc = this.UserDataCollection.Find(usr => usr.UserName == userName); 
+
+            var Userv
+        
+        }
 
 
         public bool CheckUsernameExists(string userName)
