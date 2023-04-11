@@ -8,7 +8,10 @@ namespace OriolOr.Maneko.API.Controllers
     {
         public IUserCredentialsService UserCredentialsService;
 
-        public UserDataController() { }
+        public UserDataController(IUserCredentialsService userCredentialsService)
+        {
+            this.UserCredentialsService = userCredentialsService;
+        }
 
         [HttpGet("GetLoginCredentials")]
         public IActionResult GetLoginCredentials() {
