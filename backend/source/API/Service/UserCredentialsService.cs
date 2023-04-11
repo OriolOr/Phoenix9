@@ -3,6 +3,8 @@ using OriolOr.Maneko.API.Domain.IdentityManagement;
 using OriolOr.Maneko.API.Infrastructure;
 using OriolOr.Maneko.API.Infrastructure.Interfaces;
 using OriolOr.Maneko.API.Service.Interfaces;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -23,6 +25,8 @@ namespace OriolOr.Maneko.API.Service
         {
             bool loginSucced;
 
+            var token = this.GenerateToken();
+
             if (UserDataRepository.CheckUsernameExists(userCredentials.UserName))
             {
                 var passwordEncoded = this.UserDataRepository.GetPasswordEncoded(userCredentials.UserName);
@@ -42,15 +46,19 @@ namespace OriolOr.Maneko.API.Service
 
         public string GenerateToken()
         {
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("fhsejrkgehjg"));
-            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);             
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("EcOL6Yo8ctIxlsDvbln19Dz6x3UnvJYQosCQkcZ9"));
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
             //credentials
 
             ////Generate Claims 
+            var claims = new[]
+{
+                new Claim(ClaimTypes.NameIdentifier, "Oriol"),
+            };
 
             ////Generate Token
-            var token = "14278926";
-            return token;
+            var token = new JwtSecurityToken(claims: claims, expires: DateTime.Now.AddMinutes(60), signingCredentials: credentials);
+            return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
         private string EncodeMD5HashPassword(string password)
