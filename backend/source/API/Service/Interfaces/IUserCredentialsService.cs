@@ -5,5 +5,7 @@ namespace OriolOr.Maneko.API.Service.Interfaces
     public interface IUserCredentialsService
     {
         public bool Authenticate(UserCredentials userCredentials);
+
+        public string GenerateToken();
     }
 }

@@ -43,7 +43,7 @@ namespace OriolOr.Maneko.API.Controllers
                 UserName = user,
                 Password = password
             };
-            if (this.UserCredentialsService.CheckCredentials(userCredentials)) return Ok(JsonConvert.SerializeObject(this.AccountService.GetYearBalanceFromDb(userCredentials).FirstOrDefault()));
+            if (this.UserCredentialsService.Authenticate(userCredentials)) return Ok(JsonConvert.SerializeObject(this.AccountService.GetYearBalanceFromDb(userCredentials).FirstOrDefault()));
 
             else return StatusCode(StatusCodes.Status401Unauthorized);
         }

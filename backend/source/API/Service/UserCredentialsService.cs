@@ -1,4 +1,5 @@
-﻿using OriolOr.Maneko.API.Domain.IdentityManagement;
+﻿using MongoDB.Driver;
+using OriolOr.Maneko.API.Domain.IdentityManagement;
 using OriolOr.Maneko.API.Infrastructure;
 using OriolOr.Maneko.API.Infrastructure.Interfaces;
 using OriolOr.Maneko.API.Service.Interfaces;
@@ -39,7 +40,17 @@ namespace OriolOr.Maneko.API.Service
             return loginSucced;
         }
 
-        private void GenerateToken() { }
+        public string GenerateToken()
+        {
+            //securityKey = 
+            //credentials
+
+            ////Generate Claims 
+
+            ////Generate Token
+            var token = "14278926";
+            return token;
+        }
 
         private string EncodeMD5HashPassword(string password)
         {
