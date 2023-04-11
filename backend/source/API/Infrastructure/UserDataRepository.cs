@@ -35,9 +35,7 @@ namespace OriolOr.Maneko.API.Infrastructure
         public void SetUserToken(string userName)
         {
             var userDoc = this.UserDataCollection.Find(usr => usr.UserName == userName); 
-
-            var Userv
-        
+     
         }
 
 
