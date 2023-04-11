@@ -13,7 +13,11 @@ namespace OriolOr.Maneko.API.Controllers
         [HttpGet("GetLoginCredentials")]
         public IActionResult GetLoginCredentials() {
 
-            var userCredentials = new UserCredentials();
+            var userCredentials = new UserCredentials()
+            {
+                UserName = "user",
+                Password = "password"
+            };
 
             UserCredentialsService.Authenticate(userCredentials);
             return Ok(); 

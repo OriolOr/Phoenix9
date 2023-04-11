@@ -5,7 +5,7 @@ namespace OriolOr.Maneko.API.Domain.IdentityManagement
     [BsonIgnoreExtraElements]
     public class UserCredentials
     {
-        public string UserName;
+        public string? UserName;
         public string? Password;
         public string? AccountId;
     }
