@@ -1,5 +1,4 @@
-﻿using MongoDB.Driver;
-using OriolOr.Maneko.API.Domain.IdentityManagement;
+﻿using OriolOr.Maneko.API.Domain.IdentityManagement;
 using OriolOr.Maneko.API.Infrastructure;
 using OriolOr.Maneko.API.Infrastructure.Interfaces;
 using OriolOr.Maneko.API.Service.Interfaces;
@@ -42,7 +41,7 @@ namespace OriolOr.Maneko.API.Service
 
         public string GenerateToken()
         {
-            //securityKey = 
+            //var securityKey = SymetricSecurityKey()
             //credentials
 
             ////Generate Claims 
