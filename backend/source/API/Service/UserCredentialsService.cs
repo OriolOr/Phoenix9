@@ -1,4 +1,5 @@
-﻿using OriolOr.Maneko.API.Domain.IdentityManagement;
+﻿using Microsoft.IdentityModel.Tokens;
+using OriolOr.Maneko.API.Domain.IdentityManagement;
 using OriolOr.Maneko.API.Infrastructure;
 using OriolOr.Maneko.API.Infrastructure.Interfaces;
 using OriolOr.Maneko.API.Service.Interfaces;
@@ -41,7 +42,8 @@ namespace OriolOr.Maneko.API.Service
 
         public string GenerateToken()
         {
-            //var securityKey = SymetricSecurityKey()
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("fhsejrkgehjg"));
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);             
             //credentials
 
             ////Generate Claims 
