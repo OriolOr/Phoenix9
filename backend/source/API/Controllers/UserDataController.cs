@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using OriolOr.Maneko.API.Domain.IdentityManagement;
 using OriolOr.Maneko.API.Service.Interfaces;
 
@@ -18,12 +19,18 @@ namespace OriolOr.Maneko.API.Controllers
 
             var userCredentials = new UserCredentials()
             {
-                UserName = "user",
+                UserName = "sp",
                 Password = "password"
             };
 
-            UserCredentialsService.Authenticate(userCredentials);
-            return Ok(); 
+            if (UserCredentialsService.Authenticate(userCredentials))
+            {
+                var token = UserCredentialsService.GenerateToken();
+                return Ok(JsonConvert.SerializeObject(token));
+            }
+
+            else return StatusCode(StatusCodes.Status401Unauthorized);
+
         }
     }
 }
