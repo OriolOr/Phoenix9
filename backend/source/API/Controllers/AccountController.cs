@@ -21,9 +21,8 @@ namespace OriolOr.Maneko.API.Controllers
 
  
         [HttpGet("GetCurrentBalance")]
-        public IActionResult GetCurrentBalance(string user , string password)
+        public IActionResult GetCurrentBalance(string user, string password)
         {
-
             var userCredentials = new UserCredentials()
             {
                 UserName = user,

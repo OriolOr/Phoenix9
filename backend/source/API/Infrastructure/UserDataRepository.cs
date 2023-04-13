@@ -4,6 +4,7 @@ using OriolOr.Maneko.API.Domain.IdentityManagement;
 using OriolOr.Maneko.API.Infrastructure.Interfaces;
 using System.Collections.ObjectModel;
 using OriolOr.Maneko.API.Properties;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace OriolOr.Maneko.API.Infrastructure
 {
@@ -30,14 +31,20 @@ namespace OriolOr.Maneko.API.Infrastructure
 
         }
 
-
-        //toDo
-        public void SetUserToken(string userName)
+        public string GetUserToken(string userName) => this.UserDataCollection.Find(usr => usr.UserName == userName).FirstOrDefault().Token.ToString();
+        
+        public void SetUserToken(string userName, string token)
         {
-            var userDoc = this.UserDataCollection.Find(usr => usr.UserName == userName); 
+            var userDoc = this.UserDataCollection.Find(usr => usr.UserName == userName).FirstOrDefault();
+
+            userDoc.Token = new UserToken()
+            {
+                Token = token
+            };
+
+            this.UserDataCollection.ReplaceOne(usr => usr.UserName == userName, userDoc);
      
         }
-
 
         public bool CheckUsernameExists(string userName)
         {

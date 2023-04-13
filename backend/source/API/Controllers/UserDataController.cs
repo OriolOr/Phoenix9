@@ -19,13 +19,14 @@ namespace OriolOr.Maneko.API.Controllers
 
             var userCredentials = new UserCredentials()
             {
-                UserName = "sp",
-                Password = "password"
+                UserName = "oriol.orus.or@gmail.com",
+                Password = password
             };
 
             if (UserCredentialsService.Authenticate(userCredentials))
             {
-                var token = UserCredentialsService.GenerateToken(userCredentials.UserName);
+                var token = UserCredentialsService.AddToken(userCredentials.UserName);
+                
                 return Ok(JsonConvert.SerializeObject(token));
             }
 

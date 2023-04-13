@@ -25,6 +25,7 @@ namespace OriolOr.Maneko.API.Service
         {
             bool loginSucced;
 
+
             if (userCredentials.UserName == "sp")
             {
                 loginSucced = true;
@@ -42,16 +43,23 @@ namespace OriolOr.Maneko.API.Service
             }
             else  loginSucced = false;
 
-
             return loginSucced;
         }
 
-        public void ValidateToken(string token) { 
-            //CheckToken
+        public void ValidateToken(string userName, string token)  =>this.UserDataRepository.GetUserToken(userName);
+        
+        public string AddToken(string userName)
+        {
+            var token = this.GenerateToken(userName);
+            var serializedToken = new JwtSecurityTokenHandler().WriteToken(token);
+
+            this.UserDataRepository.SetUserToken(userName, serializedToken);
+
+            return serializedToken;
         }
 
-        public string GenerateToken(string userName)
-        {
+        private JwtSecurityToken GenerateToken(string userName) {
+
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("EcOL6Yo8ctIxlsDvbln19Dz6x3UnvJYQosCQkcZ9"));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
@@ -60,8 +68,7 @@ namespace OriolOr.Maneko.API.Service
                 new Claim(ClaimTypes.UserData, userName),
             };
 
-            var token = new JwtSecurityToken(claims: claims, expires: DateTime.Now.AddMinutes(60), signingCredentials: credentials);
-            return new JwtSecurityTokenHandler().WriteToken(token);
+            return  new JwtSecurityToken(claims: claims, expires: DateTime.Now.AddMinutes(60), signingCredentials: credentials);
         }
 
         private string EncodeMD5HashPassword(string password)
