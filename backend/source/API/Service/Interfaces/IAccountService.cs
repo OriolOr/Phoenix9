@@ -6,8 +6,8 @@ namespace OriolOr.Maneko.API.Service.Interfaces
 {
     public interface IAccountService
     {
-        public double GetCurrentBalanceFromDb(UserCredentials userCredentials);
+        public double GetCurrentBalanceFromDb();
 
-        public Collection<YearBalance> GetYearBalanceFromDb(UserCredentials userCredentials);
+        public Collection<YearBalance> GetYearBalanceFromDb();
     }
 }

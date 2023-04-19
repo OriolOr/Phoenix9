@@ -33,5 +33,19 @@ namespace OriolOr.Maneko.API.Controllers
             else return StatusCode(StatusCodes.Status401Unauthorized);
 
         }
+
+        [HttpGet("SignInUser")]
+        public IActionResult SignInUser(string userName, string password) {
+
+
+            var userCredentials = new UserCredentials()
+            {
+                UserName = userName,
+                Password = password,
+                Role = RoleType.User
+            };
+            UserCredentialsService.AddNewUser(userCredentials);
+            return Ok();
+        }
     }
 }

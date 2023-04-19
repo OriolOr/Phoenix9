@@ -18,6 +18,12 @@ namespace OriolOr.Maneko.API.Infrastructure
             this.UserDataCollection = MongoDbConfigurator.DataBase.GetCollection<UserCredentials>(this.CollectionName);
         }
 
+
+        public void AddUser(UserCredentials userCredentials)
+        {
+            this.UserDataCollection.InsertOne(userCredentials);
+        }
+
         public void LoadUserData(IMongoDatabase database)
         {
 
@@ -31,20 +37,26 @@ namespace OriolOr.Maneko.API.Infrastructure
 
         }
 
-        public string GetUserToken(string userName) => this.UserDataCollection.Find(usr => usr.UserName == userName).FirstOrDefault().Token.ToString();
-        
+        public string GetUserToken(string userName) => this.UserDataCollection.Find(usr => usr.UserName == userName).FirstOrDefault().Token.Value.ToString();
+
+        public IEnumerable<string>  GetAllTokens() => this.UserDataCollection.Find(FilterDefinition<UserCredentials>.Empty).ToList().Select(u =>  u.Token.Value).ToList();
+
+       
         public void SetUserToken(string userName, string token)
         {
             var userDoc = this.UserDataCollection.Find(usr => usr.UserName == userName).FirstOrDefault();
 
             userDoc.Token = new UserToken()
             {
-                Token = token
+                Value = token
+
             };
 
             this.UserDataCollection.ReplaceOne(usr => usr.UserName == userName, userDoc);
      
         }
+
+
 
         public bool CheckUsernameExists(string userName)
         {

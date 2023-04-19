@@ -15,12 +15,12 @@ namespace OriolOr.Maneko.API.Service
             this.AccountDataRepository = accountDataRepository;
         }
 
-        public double GetCurrentBalanceFromDb(UserCredentials userCredentials)
+        public double GetCurrentBalanceFromDb()
             
             => AccountDataRepository.GetAccountCurrentBalance(MongoDbConfigurator.DataBase);
         
 
-        public Collection<YearBalance> GetYearBalanceFromDb(UserCredentials userCredentials)
+        public Collection<YearBalance> GetYearBalanceFromDb()
 
             => AccountDataRepository.GetYearBalance(MongoDbConfigurator.DataBase);
 

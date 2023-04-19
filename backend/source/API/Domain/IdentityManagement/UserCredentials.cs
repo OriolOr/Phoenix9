@@ -9,6 +9,6 @@ namespace OriolOr.Maneko.API.Domain.IdentityManagement
         public string? Password;
         public string? AccountId;
         public RoleType Role;
-        public UserToken? Token;
+        public UserToken Token;
     }
 }
