@@ -20,17 +20,16 @@ namespace OriolOr.Maneko.API.Infrastructure
 
 
         public void AddUser(UserCredentials userCredentials)
-        {
-            this.UserDataCollection.InsertOne(userCredentials);
-        }
+            => this.UserDataCollection.InsertOne(userCredentials);
         
-
-        public IEnumerable<string> GetAllTokens() => this.UserDataCollection.Find(FilterDefinition<UserCredentials>.Empty).ToList().Select(u => u.Token.Value).ToList();
+        public IEnumerable<string> GetAllTokens() 
+            => this.UserDataCollection.Find(FilterDefinition<UserCredentials>.Empty).ToList().Select(u => u.Token.Value).ToList();
 
         public string GetPasswordEncoded(string userName)
             => this.UserDataCollection.Find(usr => usr.UserName == userName).FirstOrDefault<UserCredentials>().Password;
 
-        public string GetUserToken(string userName) => this.UserDataCollection.Find(usr => usr.UserName == userName).FirstOrDefault().Token.Value.ToString();
+        public string GetUserToken(string userName) 
+            => this.UserDataCollection.Find(usr => usr.UserName == userName).FirstOrDefault().Token.Value.ToString();
 
         public void LoadUserData(IMongoDatabase database)
         {
