@@ -54,7 +54,7 @@ namespace OriolOr.Maneko.API.Infrastructure
         }
 
         public bool UserExists(string userName)
-            => this.UserDataCollection.CountDocuments(d => d.UserName == userName) == 0;
+            => this.UserDataCollection.CountDocuments(d => d.UserName == userName) == 1;
 
     }
 }

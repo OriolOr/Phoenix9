@@ -14,12 +14,12 @@ namespace OriolOr.Maneko.API.Controllers
             this.UserCredentialsService = userCredentialsService;
         }
 
-        [HttpPost("GetLoginCredentials")]
+        [HttpPost("LoginCredentials")]
         public IActionResult GetLoginCredentials(string userName, string password) {
 
             var userCredentials = new UserCredentials()
             {
-                UserName = "oriol.orus.or@gmail.com",
+                UserName = userName,
                 Password = password
             };
 
