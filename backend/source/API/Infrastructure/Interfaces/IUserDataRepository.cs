@@ -12,7 +12,7 @@ namespace OriolOr.Maneko.API.Infrastructure.Interfaces
         public string GetPasswordEncoded(string userName);
         public string GetUserToken(string userName);
         public void LoadUserData(IMongoDatabase database);
-        public void SetUserToken(string userName, string token, ushort expirationDate);
+        public void SetUserToken(string userName, string token, uint expirationDate);
         public bool UserExists(string userName);
 
     }

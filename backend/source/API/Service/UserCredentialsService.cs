@@ -49,7 +49,7 @@ namespace OriolOr.Maneko.API.Service
         public string AddToken(string userName)
         {
             var token = this.GenerateToken(userName);
-            var expirationDate = Convert.ToUInt16(token.Claims.FirstOrDefault(c => c.Type == "exp")?.Value);
+            var expirationDate = Convert.ToUInt32(token.Claims.FirstOrDefault(c => c.Type == "exp")?.Value);
             var serializedToken = new JwtSecurityTokenHandler().WriteToken(token);
             this.UserDataRepository.SetUserToken(userName, serializedToken, expirationDate);
 

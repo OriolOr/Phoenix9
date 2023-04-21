@@ -41,7 +41,7 @@ namespace OriolOr.Maneko.API.Infrastructure
                 this.UserDataCollection.InsertOne(userData);
             }
         }
-        public void SetUserToken(string userName, string token,ushort expirationDate)
+        public void SetUserToken(string userName, string token, uint expirationDate)
         {
             var userDoc = this.UserDataCollection.Find(usr => usr.UserName == userName).FirstOrDefault();
 
