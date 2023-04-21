@@ -66,10 +66,7 @@ namespace OriolOr.Maneko.API.Service
 
             return serializedToken;
         }
-        public bool UserExists ()
-        {
-            return true;
-        }
+
         public void AddNewUser(UserCredentials userCredentials)
         {
             if (this.UserDataRepository.UserExists(userCredentials.UserName))
