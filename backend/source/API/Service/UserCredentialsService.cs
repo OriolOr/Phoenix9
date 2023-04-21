@@ -47,15 +47,8 @@ namespace OriolOr.Maneko.API.Service
         }
 
         public bool ValidateToken(string token)
-        {
-            var tokensList = this.UserDataRepository.GetAllTokens();
-
-            if (tokensList.Contains(token))
-                return true;
-
-            else
-                return false;
-        }
+            => this.UserDataRepository.GetAllTokens().Contains(token);
+       
         
         public string AddToken(string userName)
         {
