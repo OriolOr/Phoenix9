@@ -30,7 +30,7 @@ namespace OriolOr.Maneko.API.Service
             {
                 loginSucced = true;
             }
-            else if (UserDataRepository.CheckUsernameExists(userCredentials.UserName))
+            else if (UserDataRepository.UserExists(userCredentials.UserName))
             {
                 var passwordEncoded = this.UserDataRepository.GetPasswordEncoded(userCredentials.UserName);
                 if (passwordEncoded == this.EncodeMD5HashPassword(userCredentials.Password))

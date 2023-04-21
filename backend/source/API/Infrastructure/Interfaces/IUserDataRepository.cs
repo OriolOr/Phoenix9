@@ -8,13 +8,13 @@ namespace OriolOr.Maneko.API.Infrastructure.Interfaces
     {
         public string CollectionName { get; }
         public void AddUser(UserCredentials userCredentials);
-        public bool UserExists(string userName);
-        public bool CheckUsernameExists(string userName);
-        public string GetPasswordEncoded(string userName);
-        public void LoadUserData(IMongoDatabase database);
-        public string GetUserToken(string userName);
         public IEnumerable<string> GetAllTokens();
+        public string GetPasswordEncoded(string userName);
+        public string GetUserToken(string userName);
+        public void LoadUserData(IMongoDatabase database);
         public void SetUserToken(string userName, string token);
+        public bool UserExists(string userName);
+
 
     }
 }
