@@ -1,5 +1,4 @@
 ﻿using Microsoft.IdentityModel.Tokens;
-using MongoDB.Driver.Core.Operations;
 using OriolOr.Maneko.API.Domain.IdentityManagement;
 using OriolOr.Maneko.API.Infrastructure;
 using OriolOr.Maneko.API.Infrastructure.Interfaces;
@@ -49,16 +48,13 @@ namespace OriolOr.Maneko.API.Service
 
         public bool ValidateToken(string token)
         {
-            this.UserDataRepository.GetAllTokens();
-            //this.Used
+            var tokensList = this.UserDataRepository.GetAllTokens();
 
-            //var tk  = this.UserDataRepository.GetUserToken(userName);
+            if (tokensList.Contains(token))
+                return true;
 
-            // if (tk == token)  return true;
-
-            // else return false;
-
-            return true;
+            else
+                return false;
         }
         
         public string AddToken(string userName)
@@ -70,11 +66,20 @@ namespace OriolOr.Maneko.API.Service
 
             return serializedToken;
         }
-
+        public bool UserExists ()
+        {
+            return true;
+        }
         public void AddNewUser(UserCredentials userCredentials)
         {
-            this.UserDataRepository.AddUser(userCredentials);
+            if (this.UserDataRepository.UserExists(userCredentials.UserName))
+            {
+                userCredentials.Password = EncodeMD5HashPassword(userCredentials.Password);
+                this.UserDataRepository.AddUser(userCredentials);
+            }
         }
+        
+
         private JwtSecurityToken GenerateToken(string userName) {
 
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("EcOL6Yo8ctIxlsDvbln19Dz6x3UnvJYQosCQkcZ9"));
@@ -87,8 +92,6 @@ namespace OriolOr.Maneko.API.Service
 
             return  new JwtSecurityToken(claims: claims, expires: DateTime.Now.AddMinutes(60), signingCredentials: credentials);
         }
-
- 
 
         private string EncodeMD5HashPassword(string password)
         {
