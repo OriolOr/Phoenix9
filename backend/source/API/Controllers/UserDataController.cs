@@ -44,8 +44,10 @@ namespace OriolOr.Maneko.API.Controllers
                 Password = password,
                 Role = RoleType.User
             };
-            UserCredentialsService.AddNewUser(userCredentials);
-            return Ok();
+            if (UserCredentialsService.AddNewUser(userCredentials))
+                return Ok();
+            else 
+                return StatusCode(StatusCodes.Status409Conflict);
         }
     }
 }

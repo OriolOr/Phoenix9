@@ -12,7 +12,6 @@ namespace OriolOr.Maneko.API.Infrastructure
     public class AccountDataRepository : IAccountDataRepository
     {
         public string CollectionName => "AccountData";
-        private readonly IMongoCollection<Account> UserDataCollection;
 
         public AccountDataRepository()
         {

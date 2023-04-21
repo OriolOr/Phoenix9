@@ -7,7 +7,7 @@ namespace OriolOr.Maneko.API.Service.Interfaces
     {
         public bool Authenticate(UserCredentials userCredentials);
         public string AddToken(string userName);
-        public void AddNewUser(UserCredentials userCredentials);
+        public bool AddNewUser(UserCredentials userCredentials);
         public bool ValidateToken(string token);
 
     }
