@@ -1,4 +1,5 @@
 ﻿using Microsoft.IdentityModel.Tokens;
+using MongoDB.Driver.Linq;
 using OriolOr.Maneko.API.Domain.IdentityManagement;
 using OriolOr.Maneko.API.Infrastructure;
 using OriolOr.Maneko.API.Infrastructure.Interfaces;
@@ -48,9 +49,9 @@ namespace OriolOr.Maneko.API.Service
         public string AddToken(string userName)
         {
             var token = this.GenerateToken(userName);
+            var expirationDate = token.Claims.FirstOrDefault(c => c.Type == "exp")?.Value;
             var serializedToken = new JwtSecurityTokenHandler().WriteToken(token);
-
-            this.UserDataRepository.SetUserToken(userName, serializedToken);
+            this.UserDataRepository.SetUserToken(userName, serializedToken, expirationDate);
 
             return serializedToken;
         }
