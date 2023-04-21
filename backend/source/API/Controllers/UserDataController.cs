@@ -14,7 +14,7 @@ namespace OriolOr.Maneko.API.Controllers
             this.UserCredentialsService = userCredentialsService;
         }
 
-        [HttpGet("GetLoginCredentials")]
+        [HttpPost("GetLoginCredentials")]
         public IActionResult GetLoginCredentials(string userName, string password) {
 
             var userCredentials = new UserCredentials()
@@ -34,7 +34,7 @@ namespace OriolOr.Maneko.API.Controllers
 
         }
 
-        [HttpGet("SignInUser")]
+        [HttpPost("SignInUser")]
         public IActionResult SignInUser(string userName, string password) {
 
             var userCredentials = new UserCredentials()
