@@ -75,7 +75,6 @@ namespace OriolOr.Maneko.API.Service
                 this.UserDataRepository.AddUser(userCredentials);
             }
         }
-        
 
         private JwtSecurityToken GenerateToken(string userName) {
 
