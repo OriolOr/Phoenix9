@@ -25,12 +25,7 @@ namespace OriolOr.Maneko.API.Service
         {
             bool loginSucced;
 
-            //TO BE REMOVED 
-            if (userCredentials.UserName == "sp")
-            {
-                loginSucced = true;
-            }
-            else if (UserDataRepository.UserExists(userCredentials.UserName))
+            if (UserDataRepository.UserExists(userCredentials.UserName))
             {
                 var passwordEncoded = this.UserDataRepository.GetPasswordEncoded(userCredentials.UserName);
                 if (passwordEncoded == this.EncodeMD5HashPassword(userCredentials.Password))
@@ -60,13 +55,16 @@ namespace OriolOr.Maneko.API.Service
             return serializedToken;
         }
 
-        public void AddNewUser(UserCredentials userCredentials)
+        public bool AddNewUser(UserCredentials userCredentials)
         {
             if (this.UserDataRepository.UserExists(userCredentials.UserName))
             {
-                userCredentials.Password = EncodeMD5HashPassword(userCredentials.Password);
-                this.UserDataRepository.AddUser(userCredentials);
+                return false;
             }
+
+            userCredentials.Password = EncodeMD5HashPassword(userCredentials.Password);
+            this.UserDataRepository.AddUser(userCredentials);
+            return true;
         }
 
         private JwtSecurityToken GenerateToken(string userName) {
