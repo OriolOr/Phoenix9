@@ -48,7 +48,6 @@ namespace OriolOr.Maneko.API.Infrastructure
             userDoc.Token = new UserToken()
             {
                 Value = token
-
             };
 
             this.UserDataCollection.ReplaceOne(usr => usr.UserName == userName, userDoc);

@@ -15,6 +15,5 @@ namespace OriolOr.Maneko.API.Infrastructure.Interfaces
         public void SetUserToken(string userName, string token);
         public bool UserExists(string userName);
 
-
     }
 }
