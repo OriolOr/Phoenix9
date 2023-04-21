@@ -37,7 +37,6 @@ namespace OriolOr.Maneko.API.Controllers
         [HttpGet("SignInUser")]
         public IActionResult SignInUser(string userName, string password) {
 
-
             var userCredentials = new UserCredentials()
             {
                 UserName = userName,
