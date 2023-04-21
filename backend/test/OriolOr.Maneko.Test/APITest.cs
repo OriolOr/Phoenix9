@@ -2,10 +2,10 @@ using Xunit;
 
 namespace OriolOr.Maneko.Test
 {
-    public class UnitTest1
+    public class APITest
     {
         [Fact]
-        public void Test1()
+        public void SigInUser()
         {
             Assert.True(true);
         }
