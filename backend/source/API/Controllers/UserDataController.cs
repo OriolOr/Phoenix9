@@ -17,6 +17,11 @@ namespace OriolOr.Maneko.API.Controllers
         [HttpPost("LoginCredentials")]
         public IActionResult LoginCredentials(string userName, string password) {
 
+            if (password == null)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest);
+            }
+
             var userCredentials = new UserCredentials()
             {
                 UserName = userName,
@@ -37,6 +42,9 @@ namespace OriolOr.Maneko.API.Controllers
         [HttpPost("SignInUser")]
         public IActionResult SignInUser(string userName, string password) {
 
+            if (password == null){
+                return StatusCode(StatusCodes.Status400BadRequest);
+            }
             var userCredentials = new UserCredentials()
             {
                 UserName = userName,

@@ -13,18 +13,25 @@ namespace OriolOr.Maneko.Test
         private readonly HttpClient client;
         private readonly string uri; 
 
-
         public APITest(WebApplicationFactory<Program> factory)
         {
             client = factory.CreateClient();
         }
+        
+        [Fact]
+        public async void APITest_LogInUser_400BadRequest()
+        {
+            var httpContent = new StringContent("", Encoding.UTF8, "application/json");
+            var response = await client.PostAsync("https://localhost:7171/LoginCredentials", httpContent);
+            response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+        }
 
         [Fact]
-        public async void SigInUser()
+        public async void APITest_SigInUser_400BadRequest()
         {
-            var httpContent = new StringContent("aaaaa;", Encoding.UTF8, "application/json");
-            var response = await client.PostAsync("https://localhost:7171/LoginCredentials", httpContent);
-            response.StatusCode.Should().Be(HttpStatusCode.Unauthorized);
+            var httpContent = new StringContent("{'password' : '1234'}", Encoding.UTF8, "application/json");
+            var response = await client.PostAsync("https://localhost:7171/SignInUser", httpContent);
+            response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
         }
     }
 }
