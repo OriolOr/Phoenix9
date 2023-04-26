@@ -17,7 +17,21 @@ namespace OriolOr.Maneko.Test
         {
             client = factory.CreateClient();
         }
-        
+
+        [Fact]
+        public async void APITest_GetCurrentBalance_400BadRequest()
+        {
+            var response = await client.GetAsync("https://localhost:7171/Account/GetCurrentBalance");
+            response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+        }
+
+        [Fact]
+        public async void APITest_GetYearData_400BadRequest()
+        {
+            var response = await client.GetAsync("https://localhost:7171/Account/GetYearData");
+            response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+        }
+
         [Fact]
         public async void APITest_LogInUser_400BadRequest()
         {
