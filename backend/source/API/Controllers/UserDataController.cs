@@ -45,8 +45,8 @@ namespace OriolOr.Maneko.API.Controllers
             };
             if (UserCredentialsService.AddNewUser(userCredentials))
                 return Ok();
-            else 
-                return StatusCode(StatusCodes.Status409Conflict);
+            
+            else return StatusCode(StatusCodes.Status409Conflict);
         }
     }
 }
