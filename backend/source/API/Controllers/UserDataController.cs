@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using OriolOr.Maneko.API.Domain.IdentityManagement;
 using OriolOr.Maneko.API.Service.Interfaces;
@@ -15,18 +16,12 @@ namespace OriolOr.Maneko.API.Controllers
         }
 
         [HttpPost("LoginCredentials")]
-        public IActionResult LoginCredentials(string userName, string password) {
+        public IActionResult LoginCredentials(UserCredentials userCredentials) {
 
-            if (password == null)
+            if (userCredentials.Password.IsNullOrEmpty() || userCredentials.Password.IsNullOrEmpty())
             {
                 return StatusCode(StatusCodes.Status400BadRequest);
             }
-
-            var userCredentials = new UserCredentials()
-            {
-                UserName = userName,
-                Password = password
-            };
 
             if (UserCredentialsService.Authenticate(userCredentials))
             {
@@ -40,17 +35,15 @@ namespace OriolOr.Maneko.API.Controllers
         }
 
         [HttpPost("SignInUser")]
-        public IActionResult SignInUser(string userName, string password) {
+        public IActionResult SignInUser(UserCredentials userCredentials) {
 
-            if (password == null){
+            if (userCredentials.Password.IsNullOrEmpty() || userCredentials.Password.IsNullOrEmpty())
+            {
                 return StatusCode(StatusCodes.Status400BadRequest);
             }
-            var userCredentials = new UserCredentials()
-            {
-                UserName = userName,
-                Password = password,
-                Role = RoleType.User
-            };
+
+            userCredentials.Role = RoleType.User;
+      
             if (UserCredentialsService.AddNewUser(userCredentials))
                 return Ok();
             

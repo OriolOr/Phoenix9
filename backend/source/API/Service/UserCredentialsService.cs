@@ -1,5 +1,4 @@
 ﻿using Microsoft.IdentityModel.Tokens;
-using MongoDB.Driver.Linq;
 using OriolOr.Maneko.API.Domain.IdentityManagement;
 using OriolOr.Maneko.API.Infrastructure;
 using OriolOr.Maneko.API.Infrastructure.Interfaces;
