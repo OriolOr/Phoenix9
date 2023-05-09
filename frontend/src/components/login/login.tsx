@@ -11,9 +11,9 @@ const Login:React.FC = () => {
 
     return(   
     <div className="loginContainer">
-      <input type="text" onChange={(e) => setUserName(e.target.value)}></input>
-      <input type="password" onChange={(e)=> setUserPassword(e.target.value)}></input>
-      <input type="submit" value="Log In" onClick={HandleLogin}></input>
+      <input type="text" className ="loginInput" onChange={(e) => setUserName(e.target.value)}></input>
+      <input type="password" className ="loginInput" onChange={(e)=> setUserPassword(e.target.value)}></input>
+      <input type="submit" className ="login-btn" value="Log In" onClick={HandleLogin}></input>
       <h1>{userBalance}</h1>
     </div>)
 
@@ -21,7 +21,7 @@ const Login:React.FC = () => {
 
       const url = ["http://localhost:5000/Account/GetCurrentBalance?user=" + userName +"&password="+ userPassword].join();
 
-      console.log("eahtfaejkgha");
+      //to update get -> post
       Axios.get(url).then(response => CheckResponseStatus(response))
       .catch(function (error) {
         console.log(error);
