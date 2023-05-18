@@ -30,7 +30,7 @@ namespace OriolOr.Maneko.API.Controllers
                 return Ok(JsonConvert.SerializeObject(token));
             }
 
-            else return StatusCode(StatusCodes.Status401Unauthorized);
+            return StatusCode(StatusCodes.Status401Unauthorized);
 
         }
 
@@ -47,7 +47,7 @@ namespace OriolOr.Maneko.API.Controllers
             if (UserCredentialsService.AddNewUser(userCredentials))
                 return Ok();
             
-            else return StatusCode(StatusCodes.Status409Conflict);
+            return StatusCode(StatusCodes.Status409Conflict);
         }
     }
 }
