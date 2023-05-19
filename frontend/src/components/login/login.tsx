@@ -33,10 +33,12 @@ const Login:React.FC = () => {
       console.log("entro en el estatus");
       if (response.status == 200){
         console.log("OK")
+        //it should link to main page view, then it should charge all info related with user
         setUserBalance(response.data +' €');
       }
       else if (response.status == 401)
         setUserBalance("Login error");
+        <Link
     }
 };
 

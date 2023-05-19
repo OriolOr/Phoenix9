@@ -14,6 +14,7 @@ export const App:React.FC = () => {
       <Routes>
         <Route path="/" element={<Main/>}/>
         <Route path="login" element={<Login/>}/>
+        <Route path= "main" element={<Main/>}/>
       </Routes>
       <Footer/>
     </div>
