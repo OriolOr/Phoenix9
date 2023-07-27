@@ -9,10 +9,9 @@ namespace OriolOr.Maneko.API.Infrastructure
 
         public static void InitializeDataBase() {
 
-            MongoClient = new MongoClient("mongodb://mongo:27017");
+            MongoClient = new MongoClient("mongodb://localhost:27017");
             DataBase = MongoClient.GetDatabase("ManekoDataBase");
-
-           
+    
             UserDataRepository userDataRepository = new UserDataRepository();
             AccountDataRepository accountDataRepository = new AccountDataRepository();
 

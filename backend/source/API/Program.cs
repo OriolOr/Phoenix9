@@ -4,7 +4,7 @@ using OriolOr.Maneko.Infrastructure.Extensions;
  
 namespace OriolOr.Maneko.API
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {

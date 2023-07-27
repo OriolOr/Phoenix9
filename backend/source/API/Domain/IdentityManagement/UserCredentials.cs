@@ -1,12 +1,14 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
 
-namespace OriolOr.Maneko.API.Models.IdentityManagement
+namespace OriolOr.Maneko.API.Domain.IdentityManagement
 {
     [BsonIgnoreExtraElements]
     public class UserCredentials
     {
-        public string UserName;
+        public string? UserName;
         public string? Password;
         public string? AccountId;
+        public RoleType Role;
+        public UserToken Token;
     }
 }

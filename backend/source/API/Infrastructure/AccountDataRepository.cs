@@ -1,8 +1,8 @@
 ﻿using MongoDB.Driver;
 using Newtonsoft.Json;
-using OriolOr.Maneko.API.Models;
-using OriolOr.Maneko.API.Models.IdentityManagement;
-using OriolOr.Maneko.API.ExternalCom;
+using OriolOr.Maneko.API.Domain;
+using OriolOr.Maneko.API.Domain.IdentityManagement;
+using OriolOr.Maneko.API.Service.ExternalCom;
 using OriolOr.Maneko.API.Infrastructure.Interfaces;
 using System.Collections.ObjectModel;
 using OriolOr.Maneko.API.Properties;
@@ -12,7 +12,6 @@ namespace OriolOr.Maneko.API.Infrastructure
     public class AccountDataRepository : IAccountDataRepository
     {
         public string CollectionName => "AccountData";
-        private readonly IMongoCollection<Account> UserDataCollection;
 
         public AccountDataRepository()
         {
@@ -66,6 +65,7 @@ namespace OriolOr.Maneko.API.Infrastructure
                 }
             }
         }
+
 
         public double GetAccountCurrentBalance(IMongoDatabase database)
         {

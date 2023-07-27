@@ -1,9 +1,10 @@
 ﻿using MongoDB.Driver;
 using Newtonsoft.Json;
-using OriolOr.Maneko.API.Models.IdentityManagement;
+using OriolOr.Maneko.API.Domain.IdentityManagement;
 using OriolOr.Maneko.API.Infrastructure.Interfaces;
 using System.Collections.ObjectModel;
 using OriolOr.Maneko.API.Properties;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace OriolOr.Maneko.API.Infrastructure
 {
@@ -17,9 +18,21 @@ namespace OriolOr.Maneko.API.Infrastructure
             this.UserDataCollection = MongoDbConfigurator.DataBase.GetCollection<UserCredentials>(this.CollectionName);
         }
 
+
+        public void AddUser(UserCredentials userCredentials)
+            => this.UserDataCollection.InsertOne(userCredentials);
+        
+        public IEnumerable<string> GetAllTokens() 
+            => this.UserDataCollection.Find(FilterDefinition<UserCredentials>.Empty).ToList().Select(u => u.Token.Value).ToList();
+
+        public string GetPasswordEncoded(string userName)
+            => this.UserDataCollection.Find(usr => usr.UserName == userName).FirstOrDefault<UserCredentials>().Password;
+
+        public string GetUserToken(string userName) 
+            => this.UserDataCollection.Find(usr => usr.UserName == userName).FirstOrDefault().Token.Value.ToString();
+
         public void LoadUserData(IMongoDatabase database)
         {
-
             var nDocuments = this.UserDataCollection.CountDocuments(FilterDefinition<UserCredentials>.Empty);
 
             if (nDocuments == 0)
@@ -27,24 +40,22 @@ namespace OriolOr.Maneko.API.Infrastructure
                 UserCredentials userData = JsonConvert.DeserializeObject<Collection<UserCredentials>>(Resources.UserData).FirstOrDefault();
                 this.UserDataCollection.InsertOne(userData);
             }
-
         }
-
-        public bool CheckUsernameExists(string userName)
+        public void SetUserToken(string userName, string token, uint expirationDate)
         {
-            var docFind = false;
+            var userDoc = this.UserDataCollection.Find(usr => usr.UserName == userName).FirstOrDefault();
 
-            var nDocuments = this.UserDataCollection.Find(usr => usr.UserName == userName).CountDocuments();
-             
-            if (nDocuments == 1) docFind = true;
+            userDoc.Token = new UserToken()
+            {
+                Value = token,
+                ExpirationTime = expirationDate
+            };
 
-            else docFind = false;
-
-            return docFind;
-
+            this.UserDataCollection.ReplaceOne(usr => usr.UserName == userName, userDoc);
         }
-        public string GetPasswordEncoded(string userName) 
-            => this.UserDataCollection.Find(usr => usr.UserName == userName).FirstOrDefault<UserCredentials>().Password;
+
+        public bool UserExists(string userName)
+            => this.UserDataCollection.CountDocuments(d => d.UserName == userName) == 1;
 
     }
 }

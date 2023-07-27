@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using OriolOr.Maneko.API.Models.IdentityManagement;
+using OriolOr.Maneko.API.Domain.IdentityManagement;
 using OriolOr.Maneko.API.Service.Interfaces;
 
 
@@ -19,30 +19,22 @@ namespace OriolOr.Maneko.API.Controllers
             this.UserCredentialsService = userCredentialsService;
         }
 
+ 
         [HttpGet("GetCurrentBalance")]
-        public IActionResult GetCurrentBalance(string user , string password)
+        public IActionResult GetCurrentBalance(string token)
         {
 
-            var userCredentials = new UserCredentials()
-            {
-                UserName = user,
-                Password = password
-            };
-
-            if (this.UserCredentialsService.CheckCredentials(userCredentials)) return Ok(JsonConvert.SerializeObject(this.AccountService.GetCurrentBalanceFromDb(userCredentials)));
+            if (this.UserCredentialsService.ValidateToken(token)) return Ok(JsonConvert.SerializeObject(this.AccountService.GetCurrentBalanceFromDb()));
 
             else return StatusCode(StatusCodes.Status401Unauthorized);
         }
+   
 
         [HttpGet("GetYearData")]
-        public IActionResult GetYearData(string user, string password)
+        public IActionResult GetYearData(string token)
         {
-            var userCredentials = new UserCredentials()
-            {
-                UserName = user,
-                Password = password
-            };
-            if (this.UserCredentialsService.CheckCredentials(userCredentials)) return Ok(JsonConvert.SerializeObject(this.AccountService.GetYearBalanceFromDb(userCredentials).FirstOrDefault()));
+
+            if (this.UserCredentialsService.ValidateToken(token)) return Ok(JsonConvert.SerializeObject(this.AccountService.GetYearBalanceFromDb().FirstOrDefault()));
 
             else return StatusCode(StatusCodes.Status401Unauthorized);
         }

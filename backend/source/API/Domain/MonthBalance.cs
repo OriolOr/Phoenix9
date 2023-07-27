@@ -1,5 +1,5 @@
 
-namespace OriolOr.Maneko.API.Models
+namespace OriolOr.Maneko.API.Domain
 {
     public class MonthBalance
     {
