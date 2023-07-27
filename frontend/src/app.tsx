@@ -1,15 +1,22 @@
 import React from "react";
+import {Routes, Route} from "react-router-dom"
 import Footer  from "./components/footer/footer";
 import Header from "./components/header/header";
 import Login  from "./components/login/login";
+import Main from "./components/main/main";
+
 
 export const App:React.FC = () => {
   
   return(
     <div className = "appContainer">
-    <Header/>
-    <Login/>
-    <Footer/>
+      <Header/>
+      <Routes>
+        <Route path="/" element={<Main/>}/>
+        <Route path="login" element={<Login/>}/>
+        <Route path= "main" element={<Main/>}/>
+      </Routes>
+      <Footer/>
     </div>
 )
 };

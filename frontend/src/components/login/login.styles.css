@@ -5,4 +5,19 @@
     height: 30em;
     width: 30em;
     align-items: center;
+    background-color: yellow;
   }
+
+.login-btn {
+    background-color: #ffc107;
+    color: #000000;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    font-size: 1px;
+    cursor: pointer;
+  }
+
+.loginInput {
+  border: 1px solid grey;
+}
