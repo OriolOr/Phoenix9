@@ -6,10 +6,18 @@ export const Main:React.FC = () => {
 
     return (
     <div className = "mainContainer">
-        <h1> Maneko </h1>
+        <p>Current Balance : 0 € </p>
+        <p>Starting Balance : 0 €</p>
+        
+        
         <Link to ="login">
         <button> LogIn </button>
         </Link>
+
+       
+        <button> Balance </button>
+
+
     </div>
     )
 }
