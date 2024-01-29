@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Axios, { AxiosResponse } from "axios";
 import "./login.styles.css"
+import { Link } from "react-router-dom";
 
 
 const Login:React.FC = () => {
@@ -15,7 +16,12 @@ const Login:React.FC = () => {
       <input type="password" className ="loginInput" onChange={(e)=> setUserPassword(e.target.value)}></input>
       <input type="submit" className ="login-btn" value="Log In" onClick={HandleLogin}></input>
       <h1>{userBalance}</h1>
+
+      <Link to ="app">
+      <button className="login-exit">Exit</button>
+      </Link>
     </div>)
+
 
     function HandleLogin () {
 

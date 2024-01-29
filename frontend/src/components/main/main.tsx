@@ -2,7 +2,7 @@ import React  from "react";
 import { Link } from "react-router-dom";
 import "./main.styles.css"
 
-export const Main:React.FC = () => {
+const Main:React.FC = () => {
 
     return (
     <div className = "mainContainer">
@@ -14,8 +14,12 @@ export const Main:React.FC = () => {
         <button> LogIn </button>
         </Link>
 
-       
+
         <button> Balance </button>
+
+        <Link to ="stock">
+        <button> Stock </button>
+        </Link>
 
 
     </div>

@@ -38,25 +38,5 @@
     "Month": "August",
     "InitialBalance": 33277.52,
     "FinalBalance": 31179.50
-  },
-  {
-    "Month": "September",
-    "InitialBalance": 33277.52,
-    "FinalBalance": 31179.50
-  },
-  {
-    "Month": "October",
-    "InitialBalance": 33277.52,
-    "FinalBalance": 31179.50
-  },
-  {
-    "Month": "November",
-    "InitialBalance": 33277.52,
-    "FinalBalance": 31179.50
-  },
-  {
-    "Month": "December",
-    "InitialBalance": 33277.52,
-    "FinalBalance": 31179.50
   }
 ]
