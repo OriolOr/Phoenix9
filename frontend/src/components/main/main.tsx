@@ -9,19 +9,6 @@ const Main:React.FC = () => {
         <p>Current Balance : 0 € </p>
         <p>Starting Balance : 0 €</p>
         
-        
-        <Link to ="login">
-        <button> LogIn </button>
-        </Link>
-
-
-        <button> Balance </button>
-
-        <Link to ="stock">
-        <button> Stock </button>
-        </Link>
-
-
     </div>
     )
 }
