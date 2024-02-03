@@ -2,7 +2,29 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
     height: 2em;
     width: 100vw;
     background-color: yellow;
+}
+
+.headerLogo{
+
+}
+
+.headerRow{
+    display: flex;
+
+    flex-direction: row;
+    flex-grow: 2;
+}
+
+.headerElement{
+    padding: 0.5em;;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.headerEnd{
+    border: 1px solid blue;
 }

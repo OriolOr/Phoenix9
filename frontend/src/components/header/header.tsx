@@ -5,10 +5,16 @@ import { Link } from "react-router-dom";
 export const Header:React.FC = () => {
     return (
         <div className = "headerContainer">
-        <p>Maneko</p>
-        <Link to= "/stock">Stock</Link>
-        <Link to= "/login">Login</Link>
-        <Link to= "/main">Balance</Link>
+            <div className = "headerLogo">MANEKO</div>
+            <div className = "headerRow">
+            <Link to= "/main"><div className = "headerElement">Ballance</div></Link>
+
+                <Link to= "/stock"><div className = "headerElement">Stock</div></Link>
+            </div>
+
+            <div className = "headerEnd">
+            <Link to= "/login"><div className = "headerElement">Login</div></Link>
+            </div>
         </div>
     )
 };
