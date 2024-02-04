@@ -48,7 +48,7 @@ namespace OriolOr.Maneko.API.Infrastructure
 
                 //CREATE OBJECT TO BE INSERED IN DATABASE 
                 var newYearBalance = new YearBalance();
-                newYearBalance.Year = 2022;
+                newYearBalance.Year = 2024;
                 newYearBalance.MonthBalances = JsonConvert.DeserializeObject<Collection<MonthBalance>>(Resources.BankData);
 
                 account.YearHistory.Add(newYearBalance);

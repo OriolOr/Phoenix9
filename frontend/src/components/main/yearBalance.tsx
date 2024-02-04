@@ -71,11 +71,7 @@ const YearBalance:React.FC = () => {
                 <td>0</td>
                 <td>0</td>
             </tr>
-
         </table>
-
-
-
     )
 }
 

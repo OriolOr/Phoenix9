@@ -3,18 +3,21 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    height: 2em;
+    height: 2.5em;
     width: 100vw;
     background-color: #21D375;
 }
 
 .headerLogo{
+    display: flex;
+    align-items: center;
+    font-family: "ＭＳ Ｐゴシック";
     font-size: large;
+    margin-right: 2%;
 }
 
 .headerRow{
     display: flex;
-
     flex-direction: row;
     flex-grow: 2;
 }
@@ -23,6 +26,8 @@
     padding: 0.5em;;
     border-radius: 3px;
     cursor: pointer;
+    color: black;
+    text-decoration: none;
 }
 
 .headerEnd{
