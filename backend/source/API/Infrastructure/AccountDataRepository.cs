@@ -48,6 +48,7 @@ namespace OriolOr.Maneko.API.Infrastructure
 
                 //CREATE OBJECT TO BE INSERED IN DATABASE 
                 var newYearBalance = new YearBalance();
+                
                 newYearBalance.Year = 2024;
                 newYearBalance.MonthBalances = JsonConvert.DeserializeObject<Collection<MonthBalance>>(Resources.BankData);
 
@@ -65,8 +66,7 @@ namespace OriolOr.Maneko.API.Infrastructure
                 }
             }
         }
-
-
+        
         public double GetAccountCurrentBalance(IMongoDatabase database)
         {
             var collection = database.GetCollection<Account>(this.CollectionName);

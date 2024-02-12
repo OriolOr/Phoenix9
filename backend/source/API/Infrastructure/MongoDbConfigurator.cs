@@ -14,11 +14,15 @@ namespace OriolOr.Maneko.API.Infrastructure
     
             UserDataRepository userDataRepository = new UserDataRepository();
             AccountDataRepository accountDataRepository = new AccountDataRepository();
+            try
+            {
+                InitializeMongoDbCollection(DataBase, accountDataRepository.CollectionName);
+                InitializeMongoDbCollection(DataBase, userDataRepository.CollectionName);
 
-            InitializeMongoDbCollection(DataBase, accountDataRepository.CollectionName);
-            InitializeMongoDbCollection(DataBase, userDataRepository.CollectionName);
-            
-            userDataRepository.LoadUserData(DataBase);
+                userDataRepository.LoadUserData(DataBase);
+            }
+            catch{}
+
         }
 
         private static void InitializeMongoDbCollection(IMongoDatabase dataBase, string collectionName)
