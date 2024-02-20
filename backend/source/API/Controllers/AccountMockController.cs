@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Collections.ObjectModel;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using OriolOr.Maneko.API.Domain.IdentityManagement;
-using OriolOr.Maneko.API.Service.Interfaces;
+using OriolOr.Maneko.API.Domain;
+
 
 
 namespace OriolOr.Maneko.API.Controllers
@@ -10,33 +11,32 @@ namespace OriolOr.Maneko.API.Controllers
     [Route("[controller]")]
     public class AccountMockController : ControllerBase
     {
-        public IAccountService AccountService;
-        public IUserCredentialsService UserCredentialsService;
 
-        public AccountController(IAccountService accountService, IUserCredentialsService userCredentialsService)
-        {
-            this.AccountService = accountService;
-            this.UserCredentialsService = userCredentialsService;
-        }
-
- 
         [HttpGet("GetCurrentBalance")]
-        public IActionResult GetCurrentBalance(string token)
+        public int  GetCurrentBalance()
         {
-
-            if (this.UserCredentialsService.ValidateToken(token)) return Ok(JsonConvert.SerializeObject(this.AccountService.GetCurrentBalanceFromDb()));
-
-            else return StatusCode(StatusCodes.Status401Unauthorized);
+            return 9017;
         }
-   
 
-        [HttpGet("GetYearData")]
-        public IActionResult GetYearData(string token)
+        [HttpGet("GetCurrentYearData")]
+        public IActionResult GetCurrentYearData()
         {
+            var balance = new Collection<MonthBalance>();
+            balance.Add(new MonthBalance(){Month = "January", InitialBalance = 200, FinalBalance = 590});
+            balance.Add(new MonthBalance() {Month = "February", InitialBalance = 1298, FinalBalance = 2545});
+            balance.Add(new MonthBalance() {Month = "March", InitialBalance = 4959, FinalBalance = 3049});
 
-            if (this.UserCredentialsService.ValidateToken(token)) return Ok(JsonConvert.SerializeObject(this.AccountService.GetYearBalanceFromDb().FirstOrDefault()));
 
-            else return StatusCode(StatusCodes.Status401Unauthorized);
+            var yearBalance = new YearBalance()
+            {
+                Year = 2023,
+                MonthBalances = balance
+
+            };
+
+            return Ok(JsonConvert.SerializeObject(yearBalance));
         }
+
+
     }
 }
