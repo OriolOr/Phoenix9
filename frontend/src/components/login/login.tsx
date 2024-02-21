@@ -8,7 +8,6 @@ const Login:React.FC = () => {
   
   const [userName , setUserName] = useState('');
   const [userPassword, setUserPassword] = useState('');
-  const [userBalance ,setUserBalance] = useState('');
 
     return(   
     <div className="loginContainer">
@@ -31,7 +30,7 @@ const Login:React.FC = () => {
       Axios.get(url).then(response => CheckResponseStatus(response))
       .catch(function (error) {
         console.log(error);
-        setUserBalance("Login error");
+      
       });
     };
 
@@ -40,11 +39,8 @@ const Login:React.FC = () => {
       if (response.status == 200){
         console.log("OK")
         //it should link to main page view, then it should charge all info related with user
-        setUserBalance(response.data +' €');
 
       }
-      else if (response.status == 401)
-        setUserBalance("Login error");
     }
 };
 
