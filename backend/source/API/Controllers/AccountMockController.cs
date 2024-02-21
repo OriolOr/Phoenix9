@@ -26,17 +26,14 @@ namespace OriolOr.Maneko.API.Controllers
             balance.Add(new MonthBalance() {Month = "February", InitialBalance = 1298, FinalBalance = 2545});
             balance.Add(new MonthBalance() {Month = "March", InitialBalance = 4959, FinalBalance = 3049});
 
-
             var yearBalance = new YearBalance()
             {
                 Year = 2023,
                 MonthBalances = balance
-
             };
 
             return Ok(JsonConvert.SerializeObject(yearBalance));
         }
-
 
     }
 }
