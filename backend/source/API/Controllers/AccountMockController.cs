@@ -13,9 +13,9 @@ namespace OriolOr.Maneko.API.Controllers
     {
 
         [HttpGet("GetCurrentBalance")]
-        public int  GetCurrentBalance()
+        public IActionResult  GetCurrentBalance()
         {
-            return 9017;
+            return Ok(9017);
         }
 
         [HttpGet("GetCurrentYearData")]
