@@ -1,13 +1,39 @@
-import React  from "react";
+import React, { useEffect, useState }  from "react";
+import Axios from "axios";
 import { Link } from "react-router-dom";
 import "./main.styles.css"
 
 
-
 interface Month {
-
+    Name: string;
+    StartBalance: number; 
+    EndBalance: number
 }
+
 const YearBalance:React.FC = () => {
+
+    const [yearData, setYearData] = useState<Month[]>([]);
+    const [yearData, setYear] = useState(0);
+
+    useEffect(()=> {
+
+        const url = "https://localhost:44356/AccountMock/GetCurrentYearData"
+        Axios.get(url).then(response => {
+            
+            const fetchYearData = response.data.MonthBalances;
+
+            const monthList: Month[] = fetchYearData.map((jsonData:any)=> {
+                return{
+                    Name: jsonData.Month,
+                    StartBalance: jsonData.InitialBalance,
+                    EndBalance: jsonData.FinalBalance
+                };
+            });
+            setYearData(monthList);
+        })
+        .catch(function (error) {});
+
+    },[]);
 
     return (
         <table>
@@ -19,66 +45,13 @@ const YearBalance:React.FC = () => {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>January</td>
-                    <td>49632,59 €</td>
-                    <td>7619,08 €</td>
-                </tr>
-                <tr>
-                    <td>February</td>
-                    <td>9749,08 €</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <td>March</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <td>April</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <td>May</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <td>June</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <td>July</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <td>August</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <td>September</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <td>October</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <td>November</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <td>December</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
+            {yearData.map (month => (
+            <tr>
+                <td>{month.Name}</td>
+                <td>{month.StartBalance}€</td>
+                <td>{month.EndBalance}€</td>
+            </tr>                    
+                ))}
             </tbody>
         </table>
     )

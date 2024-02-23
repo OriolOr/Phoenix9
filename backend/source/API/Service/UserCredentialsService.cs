@@ -4,6 +4,8 @@ using OriolOr.Maneko.API.Infrastructure;
 using OriolOr.Maneko.API.Infrastructure.Interfaces;
 using OriolOr.Maneko.API.Service.Interfaces;
 using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace OriolOr.Maneko.API.Service

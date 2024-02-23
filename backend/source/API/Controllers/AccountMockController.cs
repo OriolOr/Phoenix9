@@ -22,9 +22,12 @@ namespace OriolOr.Maneko.API.Controllers
         public IActionResult GetCurrentYearData()
         {
             var balance = new Collection<MonthBalance>();
-            balance.Add(new MonthBalance(){Month = "January", InitialBalance = 200, FinalBalance = 590});
-            balance.Add(new MonthBalance() {Month = "February", InitialBalance = 1298, FinalBalance = 2545});
-            balance.Add(new MonthBalance() {Month = "March", InitialBalance = 4959, FinalBalance = 3049});
+            balance.Add(new MonthBalance(){Month = "January", InitialBalance = 200, FinalBalance = 90});
+            balance.Add(new MonthBalance() {Month = "February", InitialBalance = 1298, FinalBalance = 545});
+            balance.Add(new MonthBalance() {Month = "March", InitialBalance = 4959, FinalBalance = 8049});
+            balance.Add(new MonthBalance() { Month = "April", InitialBalance = 12034, FinalBalance = 11590 });
+            balance.Add(new MonthBalance() { Month = "May", InitialBalance = 12998, FinalBalance = 15455 });
+            balance.Add(new MonthBalance() { Month = "June", InitialBalance = 14959, FinalBalance = 13049 });
 
             var yearBalance = new YearBalance()
             {

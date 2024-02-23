@@ -1,20 +1,24 @@
-import React, { useState }  from "react";
+import React, { useState, useEffect }  from "react";
 import YearBalance from "./yearBalance";
 import "./main.styles.css"
+import Axios, { AxiosResponse } from "axios";
 
 const Main:React.FC = () => {
 
     const [userBalance , setUserBalance] = useState(0);
-    
-    function HandleCurrentBalance(){
-        const url = "localhost:5000"; 
-        setUserBalance(9001)
-        return 9011;
-    }
+
+    useEffect(()=>{
+        const url = "https://localhost:44356/AccountMock/GetCurrentBalance"
+
+        Axios.get(url).then(response => setUserBalance(response.data))
+        .catch(function (error) {
+          console.log(error);
+        });
+    },[])
 
     return (
     <div className = "mainContainer">
-        2024
+
         <p>Current Balance : {userBalance} € </p>
         <YearBalance/>
     </div>
