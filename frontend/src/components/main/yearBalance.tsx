@@ -13,7 +13,7 @@ interface Month {
 const YearBalance:React.FC = () => {
 
     const [yearData, setYearData] = useState<Month[]>([]);
-    const [yearData, setYear] = useState(0);
+    const [year, setYear] = useState<number>(null);
 
     useEffect(()=> {
 
@@ -21,6 +21,7 @@ const YearBalance:React.FC = () => {
         Axios.get(url).then(response => {
             
             const fetchYearData = response.data.MonthBalances;
+            setYear(response.data.Year);
 
             const monthList: Month[] = fetchYearData.map((jsonData:any)=> {
                 return{
@@ -36,6 +37,8 @@ const YearBalance:React.FC = () => {
     },[]);
 
     return (
+        <div>
+            {year}
         <table>
             <thead>
                 <tr>
@@ -54,6 +57,8 @@ const YearBalance:React.FC = () => {
                 ))}
             </tbody>
         </table>
+        </div>
+
     )
 }
 
