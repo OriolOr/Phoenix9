@@ -12,6 +12,7 @@ export const Header:React.FC = () => {
             </div>
             <div className = "headerRow">
                 <Link to= "/main"><div className = "headerElement">Ballance</div></Link>
+                <Link to= "/homeMortage"><div className = "headerElement">Home Mortage</div></Link>
                 <Link to= "/stock"><div className = "headerElement">Stock</div></Link>
             </div>
 
