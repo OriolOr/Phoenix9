@@ -1,4 +1,9 @@
 {
+  
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+  },
+
   "compilerOptions": {
     "target": "es6",
     "module": "es6",
@@ -9,7 +14,6 @@
     "sourceMap": true,
     "jsx": "react",
     "noLib": false,
-    "suppressImplicitAnyIndexErrors": true,
     "skipLibCheck": true,
     "esModuleInterop": true
   },

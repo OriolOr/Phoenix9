@@ -1,10 +1,9 @@
 ﻿namespace OriolOr.Maneko.API.Domain;
 
-public class Home
+public class HomeMortage
 {
     public int totalMortage;
 
     public int remainigMortage;
-
 
 }
