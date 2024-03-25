@@ -1,8 +1,7 @@
 import React, { useEffect, useState }  from "react";
 import Axios from "axios";
-import { Link } from "react-router-dom";
 import "./main.styles.css"
-
+import "./yearBalance.styles.css"
 
 interface Month {
     Name: string;
@@ -17,7 +16,7 @@ const YearBalance:React.FC = () => {
 
     useEffect(()=> {
 
-        const url = "https://localhost:44356/AccountMock/GetCurrentYearData"
+        const url = "https://localhost:7171/AccountMock/GetCurrentYearData"
         Axios.get(url).then(response => {
             
             const fetchYearData = response.data.MonthBalances;
@@ -51,16 +50,21 @@ const YearBalance:React.FC = () => {
             {yearData.map (month => (
             <tr>
                 <td>{month.Name}</td>
-                <td>{month.StartBalance}€</td>
-                <td>{month.EndBalance}€</td>
+                <td><input type="text" value={month.StartBalance} />€</td>
+                <td><input type="text" value={month.EndBalance}/>€</td>
+                <button onClick={handleStartBalance}>Save</button>
             </tr>                    
                 ))}
             </tbody>
         </table>
         </div>
-
     )
 }
 
+const handleStartBalance = () => {  
+    const url = "https://localhost:7171/AccountMock/UpdateCurrentYearData";
+    console.log("Update Start Balance");
+    Axios.post(url).then(response => console.log(response)).catch(function (error) {});
+}
 
 export default YearBalance;

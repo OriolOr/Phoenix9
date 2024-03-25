@@ -4,7 +4,6 @@ using Newtonsoft.Json;
 using OriolOr.Maneko.API.Domain;
 
 
-
 namespace OriolOr.Maneko.API.Controllers
 {
     [ApiController]
@@ -38,5 +37,11 @@ namespace OriolOr.Maneko.API.Controllers
             return Ok(JsonConvert.SerializeObject(yearBalance));
         }
 
+        [HttpPost("UpdateCurrentYearData")]
+        public IActionResult UpdateCurrentYearData(){
+
+            return Ok();
+
+        }
     }
 }

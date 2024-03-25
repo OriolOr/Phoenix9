@@ -10,7 +10,4 @@ public class HomeMortageController : Controller
         return Ok();
     }
 
-
-
-
 }

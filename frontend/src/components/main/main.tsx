@@ -12,7 +12,6 @@ const Main:React.FC = () => {
 
         Axios.get(url).then(response => setUserBalance(response.data))
         .catch(function (error) {
-          console.log(error);
         });
     },[])
 

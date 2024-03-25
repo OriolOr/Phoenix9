@@ -2,5 +2,9 @@
 
 public class HomeMortageService
 {
-    
+    public HomeMortageService(){}
+
+
+    public void GetRemainingMortage(){}
+
 }
