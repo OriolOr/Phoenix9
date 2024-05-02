@@ -20,6 +20,8 @@ namespace OriolOr.Maneko.API.Controllers
         [HttpGet("GetCurrentYearData")]
         public IActionResult GetCurrentYearData()
         {
+
+            //save data in file or database.
             var balance = new Collection<MonthBalance>();
             balance.Add(new MonthBalance(){Month = "January", InitialBalance = 200, FinalBalance = 90});
             balance.Add(new MonthBalance() {Month = "February", InitialBalance = 1298, FinalBalance = 545});
@@ -38,8 +40,10 @@ namespace OriolOr.Maneko.API.Controllers
         }
 
         [HttpPost("UpdateCurrentYearData")]
-        public IActionResult UpdateCurrentYearData(){
+        public IActionResult UpdateCurrentYearData(string data)
+        {
 
+            var a = data;
             return Ok();
 
         }
