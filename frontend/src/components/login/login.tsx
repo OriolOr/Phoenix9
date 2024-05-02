@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Axios, { AxiosResponse } from "axios";
-import "./login.styles.css"
 import { Link } from "react-router-dom";
+import { BaseUrl } from "../../common/constants"
+import "./login.styles.css"
 
 const Login:React.FC = () => {
   
@@ -21,7 +22,7 @@ const Login:React.FC = () => {
 
     function HandleLogin () {
 
-      const url = ["http://localhost:5000/Account/GetCurrentBalance?user=" + userName +"&password="+ userPassword].join();
+      const url = [ BaseUrl + /Account/GetCurrentBalance?user=" + userName +"&password="+ userPassword].join();
 
       //to update get -> post
       Axios.get(url).then(response => CheckResponseStatus(response))
