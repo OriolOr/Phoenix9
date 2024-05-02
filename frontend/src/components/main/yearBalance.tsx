@@ -1,5 +1,6 @@
 import React, { useEffect, useState }  from "react";
 import Axios from "axios";
+import * as Constants from "../../common/constants"
 import "./main.styles.css"
 import "./yearBalance.styles.css"
 
@@ -16,7 +17,7 @@ const YearBalance:React.FC = () => {
 
     useEffect(()=> {
 
-        const url = "https://localhost:7171/AccountMock/GetCurrentYearData"
+        const url = Constants.BaseUrl + "/AccountMock/GetCurrentYearData";
         Axios.get(url).then(response => {
             
             const fetchYearData = response.data.MonthBalances;
