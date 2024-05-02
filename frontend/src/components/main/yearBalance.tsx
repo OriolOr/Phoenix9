@@ -18,6 +18,7 @@ const YearBalance:React.FC = () => {
     useEffect(()=> {
 
         const url = Constants.BaseUrl + "/AccountMock/GetCurrentYearData";
+
         Axios.get(url).then(response => {
             
             const fetchYearData = response.data.MonthBalances;

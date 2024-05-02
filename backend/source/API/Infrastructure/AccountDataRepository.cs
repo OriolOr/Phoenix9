@@ -2,9 +2,9 @@
 using Newtonsoft.Json;
 using OriolOr.Maneko.API.Domain;
 using OriolOr.Maneko.API.Domain.IdentityManagement;
-using OriolOr.Maneko.API.Service.ExternalCom;
 using OriolOr.Maneko.API.Infrastructure.Interfaces;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using OriolOr.Maneko.API.Properties;
 
 namespace OriolOr.Maneko.API.Infrastructure
@@ -12,10 +12,6 @@ namespace OriolOr.Maneko.API.Infrastructure
     public class AccountDataRepository : IAccountDataRepository
     {
         public string CollectionName => "AccountData";
-
-        public AccountDataRepository()
-        {
-        }
 
         public void LoadAccountData(IMongoDatabase database, UserCredentials userCredentials)
         {
@@ -28,28 +24,16 @@ namespace OriolOr.Maneko.API.Infrastructure
             if (accDocumentLastUpdate.Day != DateTime.Now.Day)
             {
                 Account account = new Account();
+                
                 account.LastUpdate = DateTime.Now;
-                try
-                {
-                    WebScrapper webscrapper = new WebScrapper(userCredentials);
-
-                    //CREATE ACCOUNT OBJECT 
-
-                    account.CurrentBalance = webscrapper.ScrapCurrentBalance();
-                    account.AccountNumberId = webscrapper.ScrapAccountId();
-
-                }
-                catch (Exception e)
-                {
-                    account.CurrentBalance = 0;
-                    account.AccountNumberId = "AA0000000000000000000000";
-                }
-
+                account.CurrentBalance = 0;
+                account.AccountNumberId = "AA0000000000000000000000";
+                
 
                 //CREATE OBJECT TO BE INSERED IN DATABASE 
                 var newYearBalance = new YearBalance();
-                
-                newYearBalance.Year = 2024;
+
+                newYearBalance.Year = DateTime.Now.Year;
                 newYearBalance.MonthBalances = JsonConvert.DeserializeObject<Collection<MonthBalance>>(Resources.BankData);
 
                 account.YearHistory.Add(newYearBalance);
@@ -100,5 +84,4 @@ namespace OriolOr.Maneko.API.Infrastructure
 
         }
     }
-
 }
