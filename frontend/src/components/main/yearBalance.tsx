@@ -1,6 +1,6 @@
 import React, { useEffect, useState }  from "react";
 import Axios from "axios";
-import * as Constants from "../../common/constants"
+import { BaseUrl } from "../../common/constants"
 import "./main.styles.css"
 import "./yearBalance.styles.css"
 
@@ -17,7 +17,7 @@ const YearBalance:React.FC = () => {
 
     useEffect(()=> {
 
-        const url = Constants.BaseUrl + "/AccountMock/GetCurrentYearData";
+        const url = BaseUrl + "/AccountMock/GetCurrentYearData";
 
         Axios.get(url).then(response => {
             

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Axios from "axios"
-import * as Constants from "../../common/constants"
+import { BaseUrl } from "../../common/constants"
 import "./footer.styles.css"
 
 
@@ -11,7 +11,7 @@ export const Footer:React.FC = () => {
     ManageconnectionStatus();
     function ManageconnectionStatus(){
 
-    const url =  Constants.BaseUrl + "/AccountMock/GetCurrentBalance" ;
+    const url =  BaseUrl + "/AccountMock/GetCurrentBalance" ;
     Axios.get(url).then(response => setConnectionStatus('Connected'))
     .catch(function (error) {
       setConnectionStatus('Not Connected')
