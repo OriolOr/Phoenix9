@@ -22,7 +22,7 @@ const Login:React.FC = () => {
 
     function HandleLogin () {
 
-      const url = [ BaseUrl + /Account/GetCurrentBalance?user=" + userName +"&password="+ userPassword].join();
+      const url = [ BaseUrl + "/Account/GetCurrentBalance?user=" + userName +"&password="+ userPassword].join();
 
       //to update get -> post
       Axios.get(url).then(response => CheckResponseStatus(response))
