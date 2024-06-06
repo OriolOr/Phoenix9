@@ -23,12 +23,12 @@ namespace OriolOr.Maneko.API.Controllers
 
             //save data in file or database.
             var balance = new Collection<MonthBalance>();
-            balance.Add(new MonthBalance(){Month = MonthEnum.January, InitialBalance = 200, FinalBalance = 90});
-            balance.Add(new MonthBalance() {Month = MonthEnum.February, InitialBalance = 1298, FinalBalance = 545});
-            balance.Add(new MonthBalance() {Month = MonthEnum.March, InitialBalance = 4959, FinalBalance = 8049});
-            balance.Add(new MonthBalance() { Month = MonthEnum.April, InitialBalance = 12034, FinalBalance = 11590 });
-            balance.Add(new MonthBalance() { Month = MonthEnum.May, InitialBalance = 12998, FinalBalance = 15455 });
-            balance.Add(new MonthBalance() { Month = MonthEnum.June, InitialBalance = 14959, FinalBalance = 13049 });
+            balance.Add(new MonthBalance(){Month = MonthEnum.January.ToString(), InitialBalance = 200, FinalBalance = 90});
+            balance.Add(new MonthBalance() {Month = MonthEnum.February.ToString(), InitialBalance = 1298, FinalBalance = 545});
+            balance.Add(new MonthBalance() {Month = MonthEnum.March.ToString(), InitialBalance = 4959, FinalBalance = 8049});
+            balance.Add(new MonthBalance() { Month = MonthEnum.April.ToString(), InitialBalance = 12034, FinalBalance = 11590 });
+            balance.Add(new MonthBalance() { Month = MonthEnum.May.ToString(), InitialBalance = 12998, FinalBalance = 15455 });
+            balance.Add(new MonthBalance() { Month = MonthEnum.June.ToString(), InitialBalance = 14959, FinalBalance = 13049 });
 
             var yearBalance = new YearBalance()
             {

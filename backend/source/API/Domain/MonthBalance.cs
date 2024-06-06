@@ -3,7 +3,7 @@ namespace OriolOr.Maneko.API.Domain
 {
     public class MonthBalance
     {
-        public MonthEnum Month;
+        public string Month;
         public float InitialBalance;
         public float FinalBalance;
     }

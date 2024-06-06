@@ -50,11 +50,13 @@ const YearBalance:React.FC = () => {
             </thead>
             <tbody>
             {yearData.map (month => (
-            <tr>
+            <tr >
                 <td>{month.Name}</td>
-                <td><input type="text" value={month.StartBalance} />€</td>
+                <td><input type="text" value={month.StartBalance} onChange={(event) =>
+                    handleStartBalance(event,index)
+                  }/>€</td>
                 <td><input type="text" value={month.EndBalance}/>€</td>
-                <button onClick={handleStartBalance}>Save</button>
+                <button>Save</button>
             </tr>                    
                 ))}
             </tbody>
@@ -63,10 +65,10 @@ const YearBalance:React.FC = () => {
     )
 }
 
-const handleStartBalance = () => {  
-    const url = "https://localhost:7171/AccountMock/UpdateCurrentYearData";
-    console.log("Update Start Balance");
-    Axios.post(url).then(response => console.log(response)).catch(function (error) {});
+const handleStartBalance = (event:React.ChangeEvent<HTMLInputElement>, value:number) => {  
+    //const url = BaseUrl + "/AccountMock/UpdateCurrentYearData";
+    console.log(value);
+    //Axios.post(url).then(response => console.log(response)).catch(function (error) {});
 }
 
 export default YearBalance;
