@@ -1,13 +1,16 @@
 import React, { useEffect, useState }  from "react";
 import Axios from "axios";
-import { BaseUrl } from "../../common/constants"
-import "./main.styles.css"
+import { BaseUrl } from "../../../common/constants"
+import "../main.styles.css"
 import "./yearBalance.styles.css"
+import Balance from "./balance";
+import ContentEditable from "react-contenteditable";
 
 interface Month {
-    Name: string;
-    StartBalance: number; 
+    Name: string
+    StartBalance: number
     EndBalance: number
+    Delta: number
 }
 
 const YearBalance:React.FC = () => {
@@ -28,7 +31,8 @@ const YearBalance:React.FC = () => {
                 return{
                     Name: jsonData.Month,
                     StartBalance: jsonData.InitialBalance,
-                    EndBalance: jsonData.FinalBalance
+                    EndBalance: jsonData.FinalBalance,
+                    Delta: jsonData.FinalBalance - jsonData.InitialBalance
                 };
             });
             setYearData(monthList);
@@ -46,17 +50,19 @@ const YearBalance:React.FC = () => {
                     <th>Month</th>
                     <th>Start</th>
                     <th>End</th>
+                    <th>Delta</th>
+                    <th>Edit</th>
+
                 </tr>
-            </thead>
+            </thead> 
             <tbody>
             {yearData.map (month => (
-            <tr >
+            <tr>
                 <td>{month.Name}</td>
-                <td><input type="text" value={month.StartBalance} onChange={(event) =>
-                    handleStartBalance(event,index)
-                  }/>€</td>
-                <td><input type="text" value={month.EndBalance}/>€</td>
-                <button>Save</button>
+                <td><div contentEditable ='true'>{month.StartBalance} €</div></td>
+                <td><div contentEditable ='true'>{month.EndBalance} €</div></td>
+                <td><Balance value={month.Delta}/></td>
+                <td><button>Edit</button><button>Delete</button></td>
             </tr>                    
                 ))}
             </tbody>

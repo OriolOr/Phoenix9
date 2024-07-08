@@ -1,6 +1,6 @@
 import React, { useState, useEffect }  from "react";
 import Axios, { AxiosResponse } from "axios";
-import YearBalance from "./yearBalance";
+import YearBalance from "./yearBalance/yearBalance";
 import { BaseUrl } from "../../common/constants"
 import "./main.styles.css"
 

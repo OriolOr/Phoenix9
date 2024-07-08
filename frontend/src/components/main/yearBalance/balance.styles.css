@@ -1,0 +1,13 @@
+.positiveValue{
+    color: white;
+    background-color: rgb(32, 177, 32);
+    border-radius: 4px;
+    padding: 2px 6px;
+}
+
+.negativeValue{
+    color:white;
+    background-color: red;
+    border-radius: 4px;
+    padding: 2px 6px;
+}

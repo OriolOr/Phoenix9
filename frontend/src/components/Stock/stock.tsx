@@ -15,8 +15,6 @@ const Stock: React.FC = () => {
         </div>
     );
 
-
-    function getStockValue() {}
 };
 
 export default Stock;
