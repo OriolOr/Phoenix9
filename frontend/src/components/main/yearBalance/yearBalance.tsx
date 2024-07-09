@@ -4,7 +4,6 @@ import { BaseUrl } from "../../../common/constants"
 import "../main.styles.css"
 import "./yearBalance.styles.css"
 import Balance from "./balance";
-import ContentEditable from "react-contenteditable";
 
 interface Month {
     Name: string
@@ -43,7 +42,7 @@ const YearBalance:React.FC = () => {
 
     return (
         <div>
-            {year}
+            <span>{year}</span>
         <table>
             <thead>
                 <tr>
@@ -59,10 +58,14 @@ const YearBalance:React.FC = () => {
             {yearData.map (month => (
             <tr>
                 <td>{month.Name}</td>
-                <td><div contentEditable ='true'>{month.StartBalance} €</div></td>
-                <td><div contentEditable ='true'>{month.EndBalance} €</div></td>
+                <td className="rowEditable">
+                    <div contentEditable ='true' onBlur={() => handleSaveBalance(month.StartBalance)}>{month.StartBalance}</div>
+                </td>
+                <td className="rowEditable">
+                    <div contentEditable ='true'>{month.StartBalance}</div>
+                </td>
                 <td><Balance value={month.Delta}/></td>
-                <td><button>Edit</button><button>Delete</button></td>
+                <td><button>Save</button><button>Delete</button></td>
             </tr>                    
                 ))}
             </tbody>
@@ -71,10 +74,14 @@ const YearBalance:React.FC = () => {
     )
 }
 
-const handleStartBalance = (event:React.ChangeEvent<HTMLInputElement>, value:number) => {  
-    //const url = BaseUrl + "/AccountMock/UpdateCurrentYearData";
-    console.log(value);
-    //Axios.post(url).then(response => console.log(response)).catch(function (error) {});
+
+const handleSaveBalance = (value:number) => {
+    console.log("clicked");
+        const url = BaseUrl + "/AccountMock/UpdateCurrentYearData";
+        console.log(value);
+        Axios.post(url).then(response => console.log(response)).catch(function (error) {});
+}
+
 }
 
 export default YearBalance;

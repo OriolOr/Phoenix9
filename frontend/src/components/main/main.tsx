@@ -1,5 +1,5 @@
 import React, { useState, useEffect }  from "react";
-import Axios, { AxiosResponse } from "axios";
+import Axios from "axios";
 import YearBalance from "./yearBalance/yearBalance";
 import { BaseUrl } from "../../common/constants"
 import "./main.styles.css"
@@ -20,7 +20,7 @@ const Main:React.FC = () => {
     return (
     <div className = "mainContainer">
 
-        <p>Current Balance : {userBalance} € </p>
+        <span>Current Balance : {userBalance} € </span>
         <YearBalance/>
     </div>
     )

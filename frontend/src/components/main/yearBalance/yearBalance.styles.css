@@ -1,7 +1,4 @@
-input {
-    border: purple solid 2px;
-    width: 8em;
-}
+
 td{
     border: blue  2px;
     width: 8em;
@@ -10,4 +7,11 @@ td{
 
 tr{
     border: green solid 3px;
+    
+}
+
+
+.divEditable{
+    border: yellowgreen solid 2px;
+    max-width: 5em;
 }
