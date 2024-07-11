@@ -1,1 +1,4 @@
 .vs/
+.vscode/
+node_modules/
+/backend/source/API/OriolOr.Maneko.API.csproj.user

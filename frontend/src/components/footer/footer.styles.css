@@ -1,9 +1,10 @@
 .footerContainer{
     display:flex;
     flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     color: grey;
-    font-size: 6px;
+    font-size: 0.7em;
     height: 3em;
     width: 100vw;
 }

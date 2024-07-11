@@ -1,18 +1,29 @@
-import React  from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect }  from "react";
+import Axios from "axios";
+import YearBalance from "./yearBalance/yearBalance";
+import { BaseUrl } from "../../common/constants"
 import "./main.styles.css"
 
-export const Main:React.FC = () => {
+
+const Main:React.FC = () => {
+
+    const [userBalance , setUserBalance] = useState(0);
+
+    useEffect(()=>{
+        const url = BaseUrl + "/AccountMock/GetCurrentBalance"
+
+        Axios.get(url).then(response => setUserBalance(response.data))
+        .catch(function (error) {
+        });
+    },[])
 
     return (
     <div className = "mainContainer">
-        <h1> Maneko </h1>
-        <Link to ="login">
-        <button> LogIn </button>
-        </Link>
+
+        <span>Current Balance : {userBalance} € </span>
+        <YearBalance/>
     </div>
     )
 }
-
 
 export default Main;
