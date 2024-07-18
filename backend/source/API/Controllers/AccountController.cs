@@ -38,5 +38,6 @@ namespace OriolOr.Maneko.API.Controllers
 
             else return StatusCode(StatusCodes.Status401Unauthorized);
         }
+
     }
 }

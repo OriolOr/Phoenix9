@@ -40,12 +40,10 @@ namespace OriolOr.Maneko.API.Controllers
         }
 
         [HttpPost("UpdateCurrentYearData")]
-        public IActionResult UpdateCurrentYearData(string data)
+        public IActionResult UpdateCurrentYearData([FromBody]string data)
         {
-
-            var a = data;
+            Console.WriteLine(data);
             return Ok();
-
         }
     }
 }
