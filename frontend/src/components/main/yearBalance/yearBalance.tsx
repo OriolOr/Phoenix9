@@ -50,7 +50,6 @@ const YearBalance:React.FC = () => {
                     <th>Start</th>
                     <th>End</th>
                     <th>Delta</th>
-                    <th>Edit</th>
                 </tr>
             </thead> 
             <tbody>
@@ -61,10 +60,9 @@ const YearBalance:React.FC = () => {
                     <div contentEditable ='true' onBlur={() => handleSaveBalance(month.StartBalance)}>{month.StartBalance}</div>
                 </td>
                 <td className="rowEditable">
-                    <div contentEditable ='true' suppressContentEditableWarning={true}>{month.StartBalance}</div>
+                    <div contentEditable ='true' suppressContentEditableWarning={true}>{month.EndBalance}</div>
                 </td>
                 <td><Balance value={month.Delta}/></td>
-                <td><button>Save</button><button>Delete</button></td>
             </tr>                    
                 ))}
             </tbody>
@@ -75,22 +73,14 @@ const YearBalance:React.FC = () => {
 
 
 const handleSaveBalance = (value:number) => {
-    console.log("clicked");
-        //build data message to send to backend 
+
         //json convert 
-        const data = [
-            {
-              "Month": "January",
-              "StartBalance": 8908,
-              "EndBalance": 4980
-            }
-          ]
+        const data = { "Month": "January", "InitialBalance": 8908, "FinalBalance": 4980 }
+    
         // temp url   
         const url = "https://localhost:7171/AccountMock/UpdateCurrentYearData";
-        //const url = BaseUrl + "AccountMock/UpdateCurrentYearData?data=7897";
-        console.log(value);
-        const dataString = data.toString();
-        Axios.post(url,dataString, { headers: {
+
+        Axios.post(url,data, { headers: {
             'Content-Type': 'application/json'
         } }).then(response => console.log(response)).catch(function (error) {});
 }

@@ -1,7 +1,9 @@
-﻿using System.Collections.ObjectModel;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using OriolOr.Maneko.API.Domain;
+using System.Collections.ObjectModel;
+using System.Text.Json;
 
 
 namespace OriolOr.Maneko.API.Controllers
@@ -32,7 +34,7 @@ namespace OriolOr.Maneko.API.Controllers
 
             var yearBalance = new YearBalance()
             {
-                Year = 2023,
+                Year = 2024,
                 MonthBalances = balance
             };
 
@@ -40,9 +42,8 @@ namespace OriolOr.Maneko.API.Controllers
         }
 
         [HttpPost("UpdateCurrentYearData")]
-        public IActionResult UpdateCurrentYearData([FromBody]string data)
+        public IActionResult UpdateCurrentYearData([FromBody] MonthBalance data)
         {
-            Console.WriteLine(data);
             return Ok();
         }
     }
