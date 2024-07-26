@@ -24,9 +24,10 @@ namespace OriolOr.Maneko.API.Controllers
         public IActionResult GetCurrentBalance(string token)
         {
 
-            if (this.UserCredentialsService.ValidateToken(token)) return Ok(JsonConvert.SerializeObject(this.AccountService.GetCurrentBalanceFromDb()));
+            //if (this.UserCredentialsService.ValidateToken(token)) return Ok(JsonConvert.SerializeObject(this.AccountService.GetCurrentBalanceFromDb()));
 
-            else return StatusCode(StatusCodes.Status401Unauthorized);
+           // else return StatusCode(StatusCodes.Status401Unauthorized);
+           return Ok();
         }
    
 
@@ -34,9 +35,10 @@ namespace OriolOr.Maneko.API.Controllers
         public IActionResult GetYearData(string token)
         {
 
-            if (this.UserCredentialsService.ValidateToken(token)) return Ok(JsonConvert.SerializeObject(this.AccountService.GetYearBalanceFromDb().FirstOrDefault()));
+            //if (this.UserCredentialsService.ValidateToken(token)) return Ok(JsonConvert.SerializeObject(this.AccountService.GetYearBalanceFromDb().FirstOrDefault()));
 
-            else return StatusCode(StatusCodes.Status401Unauthorized);
+            //else return StatusCode(StatusCodes.Status401Unauthorized);
+            return Ok();
         }
 
     }

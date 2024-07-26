@@ -8,17 +8,13 @@ namespace OriolOr.Maneko.API.Service
 {
     public class AccountService : IAccountService
     {
-        public IAccountDataRepository AccountDataRepository;
+        public IBalanceRepository BalanceRepository;
         
-        public AccountService(IAccountDataRepository accountDataRepository) {
-            this.AccountDataRepository = accountDataRepository;
+        public AccountService(IBalanceRepository balanceRepository) {
+            this.BalanceRepository = balanceRepository;
         }
 
-        public double GetCurrentBalanceFromDb()
-            => AccountDataRepository.GetAccountCurrentBalance(MongoDbConfigurator.DataBase);
-        
-
-        public Collection<YearBalance> GetYearBalanceFromDb()
-            => AccountDataRepository.GetYearBalance(MongoDbConfigurator.DataBase);
-   }
+        public void AddMonthBalanceToDb(MonthBalance monthBalance)
+            => BalanceRepository.AddBalance(MongoDbConfigurator.DataBase, monthBalance);
+    }
 }

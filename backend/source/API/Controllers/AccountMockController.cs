@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using OriolOr.Maneko.API.Domain;
+using OriolOr.Maneko.API.Service.Interfaces;
 using System.Collections.ObjectModel;
-using System.Text.Json;
+
 
 
 namespace OriolOr.Maneko.API.Controllers
@@ -12,6 +12,12 @@ namespace OriolOr.Maneko.API.Controllers
     [Route("[controller]")]
     public class AccountMockController : ControllerBase
     {
+        public IAccountService AccountService;
+
+        public AccountMockController(IAccountService accountService)
+        {
+            this.AccountService = accountService;
+        }
 
         [HttpGet("GetCurrentBalance")]
         public IActionResult  GetCurrentBalance()
@@ -39,6 +45,13 @@ namespace OriolOr.Maneko.API.Controllers
             };
 
             return Ok(JsonConvert.SerializeObject(yearBalance));
+        }
+
+        [HttpPost("AddMonthData")]
+        public IActionResult AddMonthData([FromBody] MonthBalance monthBalance)
+        {
+            this.AccountService.AddMonthBalanceToDb(monthBalance);
+            return Ok();
         }
 
         [HttpPost("UpdateCurrentYearData")]
