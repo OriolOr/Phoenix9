@@ -1,9 +1,7 @@
-﻿using MongoDB.Driver;
-using Newtonsoft.Json;
+﻿using System.Collections.ObjectModel;
+using MongoDB.Driver;
 using OriolOr.Maneko.API.Domain;
-using OriolOr.Maneko.API.Domain.IdentityManagement;
 using OriolOr.Maneko.API.Infrastructure.Interfaces;
-using System.Collections.ObjectModel;
 using OriolOr.Maneko.API.Infrastructure.DTOs;
 using OriolOr.Maneko.API.Infrastructure.Mappers;
 using OriolOr.Maneko.API.Properties;
@@ -30,13 +28,13 @@ namespace OriolOr.Maneko.API.Infrastructure
         //    return accDocument.CurrentBalance;
         //}
 
-        //TODO Analyze to be removed
+
         //public Collection<YearBalance> GetYearBalance(IMongoDatabase database)
         //{
-        //    var collection = database.GetCollection<Account>(this.CollectionName);
+        //   var collection = database.GetCollection<BalanceDTO>(this.CollectionName);
 
-        //    var accDocument = collection.Find(FilterDefinition<Account>.Empty).FirstOrDefault();
-        //    return accDocument.YearHistory;
+        //   //var accDocument = collection.Find(FilterDefinition<Account>.Empty).FirstOrDefault();
+        //   // return accDocument.YearHistory;
         //}
 
         public void AddBalance(IMongoDatabase database, MonthBalance monthBalance)

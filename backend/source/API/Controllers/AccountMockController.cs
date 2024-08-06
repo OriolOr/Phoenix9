@@ -12,9 +12,9 @@ namespace OriolOr.Maneko.API.Controllers
     [Route("[controller]")]
     public class AccountMockController : ControllerBase
     {
-        public IAccountService AccountService;
+        public IBalanceService AccountService;
 
-        public AccountMockController(IAccountService accountService)
+        public AccountMockController(IBalanceService accountService)
         {
             this.AccountService = accountService;
         }
@@ -28,7 +28,7 @@ namespace OriolOr.Maneko.API.Controllers
         [HttpGet("GetCurrentYearData")]
         public IActionResult GetCurrentYearData()
         {
-
+            //get data from database
             //save data in file or database.
             var balance = new Collection<MonthBalance>();
             balance.Add(new MonthBalance(){Month = MonthEnum.January.ToString(), InitialBalance = 200, FinalBalance = 90});
@@ -50,8 +50,18 @@ namespace OriolOr.Maneko.API.Controllers
         [HttpPost("AddMonthData")]
         public IActionResult AddMonthData([FromBody] MonthBalance monthBalance)
         {
-            this.AccountService.AddMonthBalanceToDb(monthBalance);
-            return Ok();
+            //monthBalance.Month.
+            //check if month is valid()
+            //check if month and year already exists ()
+            if (this.AccountService.ValidateMonth(monthBalance.Month))
+            {
+                this.AccountService.AddMonthBalanceToDb(monthBalance);
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
 
         [HttpPost("UpdateCurrentYearData")]

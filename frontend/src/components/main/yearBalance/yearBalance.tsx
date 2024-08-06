@@ -67,6 +67,7 @@ const YearBalance:React.FC = () => {
                 ))}
             </tbody>
         </table>
+        <button>+</button>
         </div>
     )
 }

@@ -10,10 +10,10 @@ namespace OriolOr.Maneko.API.Controllers
     [Route("[controller]")]
     public class AccountController : ControllerBase
     {
-        public IAccountService AccountService;
+        public IBalanceService AccountService;
         public IUserCredentialsService UserCredentialsService;
 
-        public AccountController(IAccountService accountService, IUserCredentialsService userCredentialsService)
+        public AccountController(IBalanceService accountService, IUserCredentialsService userCredentialsService)
         {
             this.AccountService = accountService;
             this.UserCredentialsService = userCredentialsService;
