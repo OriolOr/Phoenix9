@@ -12,6 +12,9 @@ interface Month {
     Delta: number
 }
 
+
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
 const YearBalance:React.FC = () => {
 
     const [yearData, setYearData] = useState<Month[]>([]);
@@ -40,6 +43,19 @@ const YearBalance:React.FC = () => {
 
     },[]);
 
+    const handleNewMonth = (yearData) => {
+        const availableMonths = yearData.map(month => month.Name);
+        console.log(availableMonths);
+        const newMonth:Month = {
+            Name: months[0],
+            StartBalance: 0 ,
+            EndBalance: 0,
+            Delta:0
+        }
+        setYearData([...yearData,newMonth]);
+
+    }
+
     return (
         <div>
             <span>{year}</span>
@@ -67,7 +83,7 @@ const YearBalance:React.FC = () => {
                 ))}
             </tbody>
         </table>
-        <button>+</button>
+        <button onClick ={() => handleNewMonth(yearData)}>+</button>
         </div>
     )
 }

@@ -56,11 +56,11 @@ namespace OriolOr.Maneko.API.Controllers
             if (this.AccountService.ValidateMonth(monthBalance.Month))
             {
                 this.AccountService.AddMonthBalanceToDb(monthBalance);
-                return Ok();
+                return Ok(new { message = "Month balance added successfully." });
             }
             else
             {
-                return BadRequest();
+                return BadRequest(new {error = "Invalid month." });
             }
         }
 
