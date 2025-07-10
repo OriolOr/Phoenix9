@@ -19,6 +19,22 @@ Maneko is a personal finance management web application. It allows you to view m
 docker build -f "source/API/Dockerfile" .
 ```
 
+
+## Frontend
+
+### Local development
+
+1. Install dependencies:
+    ```bash
+    cd frontend
+    npm install
+    ```
+2. Start the development server:
+    ```bash
+    npm start
+    ```
+3. Access [http://localhost:8080](http://localhost:8080)
+
 ### Docker compose 
 
 From deploy directory:
