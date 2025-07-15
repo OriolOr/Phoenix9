@@ -7,7 +7,7 @@ Maneko is a personal finance management web application. It allows you to view m
 
 - Docker and Docker Compose🐋
 - Node.js (for frontend development)🍃
-- .NET 7 SDK (for backend development)
+- .NET 8 SDK (for backend development)
 - MongoDB (automatically started with Docker Compose)
 
 
