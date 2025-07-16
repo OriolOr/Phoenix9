@@ -12,6 +12,9 @@ interface Month {
     Delta: number
 }
 
+
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
 const YearBalance:React.FC = () => {
 
     const [yearData, setYearData] = useState<Month[]>([]);
@@ -40,6 +43,19 @@ const YearBalance:React.FC = () => {
 
     },[]);
 
+    const handleNewMonth = (yearData) => {
+        const availableMonths = yearData.map(month => month.Name);
+        console.log(availableMonths);
+        const newMonth:Month = {
+            Name: months[0],
+            StartBalance: 0 ,
+            EndBalance: 0,
+            Delta:0
+        }
+        setYearData([...yearData,newMonth]);
+
+    }
+
     return (
         <div>
             <span>{year}</span>
@@ -50,8 +66,6 @@ const YearBalance:React.FC = () => {
                     <th>Start</th>
                     <th>End</th>
                     <th>Delta</th>
-                    <th>Edit</th>
-
                 </tr>
             </thead> 
             <tbody>
@@ -62,26 +76,31 @@ const YearBalance:React.FC = () => {
                     <div contentEditable ='true' onBlur={() => handleSaveBalance(month.StartBalance)}>{month.StartBalance}</div>
                 </td>
                 <td className="rowEditable">
-                    <div contentEditable ='true'>{month.StartBalance}</div>
+                    <div contentEditable ='true' suppressContentEditableWarning={true}>{month.EndBalance}</div>
                 </td>
                 <td><Balance value={month.Delta}/></td>
-                <td><button>Save</button><button>Delete</button></td>
             </tr>                    
                 ))}
             </tbody>
         </table>
+        <button onClick ={() => handleNewMonth(yearData)}>+</button>
         </div>
     )
 }
 
 
 const handleSaveBalance = (value:number) => {
-    console.log("clicked");
-        const url = BaseUrl + "/AccountMock/UpdateCurrentYearData";
-        console.log(value);
-        Axios.post(url).then(response => console.log(response)).catch(function (error) {});
+
+        //json convert 
+        const data = { "Month": "January", "InitialBalance": 8908, "FinalBalance": 4980 }
+    
+        // temp url   
+        const url = "https://localhost:7171/AccountMock/UpdateCurrentYearData";
+
+        Axios.post(url,data, { headers: {
+            'Content-Type': 'application/json'
+        } }).then(response => console.log(response)).catch(function (error) {});
 }
 
-}
 
 export default YearBalance;
