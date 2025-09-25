@@ -82,6 +82,5 @@ const handleSaveBalance = (value:number) => {
         Axios.post(url).then(response => console.log(response)).catch(function (error) {});
 }
 
-}
 
 export default YearBalance;

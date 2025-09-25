@@ -1,18 +1,16 @@
-import React from "react";
+import Stock from './components/Stock/stock'
 import {Routes, Route} from "react-router-dom"
-import Footer  from "./components/footer/footer";
-import Header from "./components/header/header";
-import Login  from "./components/login/login";
-import Main from "./components/main/main";
-import Stock from "./components/Stock/stock";
-import HomeMortage from "./components/homeMortage/homeMortage";
+import './App.css'
+import { Header } from './components/header/header'
+import { Footer } from './components/footer/footer'
+import Main from './components/main/main'
+import Login from './components/login/login'
+import HomeMortage from './components/homeMortage/homeMortage'
 
+function App() {
 
-
-export const App:React.FC = () => {
-  
-  return(
-    <div className = "appContainer">
+  return (
+    <div className= "appContainer">
       <Header/>
       <Routes>
         <Route path="/" element={<Main/>}/>
@@ -23,7 +21,7 @@ export const App:React.FC = () => {
       </Routes>
       <Footer/>
     </div>
-)
-};
+  )
+}
 
-export default App;
+export default App

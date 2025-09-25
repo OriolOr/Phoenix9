@@ -1,14 +1,11 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./app"
-import "./index.styles.css"
-import { MemoryRouter } from "react-router-dom";
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.tsx'
+import { MemoryRouter } from 'react-router-dom'
 
-ReactDOM.render(
+createRoot(document.getElementById('root')!).render(
   <MemoryRouter>
     <App />
-  </MemoryRouter>
-  ,
-  document.getElementById("root")
-);
-
+  </MemoryRouter>,
+)
