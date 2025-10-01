@@ -8,9 +8,8 @@ const Stock: React.FC = () => {
     return (
         
         <div>
-           <img src={logo} alt="logo" width="64" height="64"></img>
+
             WORK IN PROGRESS
-            <img src={logo} alt="logo" width="64" height="64"></img>
 
         </div>
     );

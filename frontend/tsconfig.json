@@ -1,22 +1,7 @@
 {
-  
-  "ts-node": {
-    "require": ["tsconfig-paths/register"]
-  },
-
-  "compilerOptions": {
-    "target": "es6",
-    "module": "es6",
-    "moduleResolution": "node",
-    "declaration": false,
-    "noImplicitAny": false,
-    "allowSyntheticDefaultImports": true,
-    "sourceMap": true,
-    "jsx": "react",
-    "noLib": false,
-    "skipLibCheck": true,
-    "esModuleInterop": true
-  },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules"]
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
 }
