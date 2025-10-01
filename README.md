@@ -1,4 +1,4 @@
-# Maneko
+# Phoenix-9
 
 Maneko is a personal finance management web application. It allows you to view monthly balances, manage mortgages, and consult account and stock information. The project consists of a React frontend and a .NET 7 backend, using MongoDB as the database.
 
@@ -7,7 +7,7 @@ Maneko is a personal finance management web application. It allows you to view m
 
 - Docker and Docker Compose🐋
 - Node.js (for frontend development)🍃
-- .NET 7 SDK (for backend development)
+- .NET 8 SDK (for backend development)
 - MongoDB (automatically started with Docker Compose)
 
 
