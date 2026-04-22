@@ -1,6 +1,6 @@
 ﻿namespace OriolOr.Maneko.API.Service.Interfaces;
 
-public class IMortageService
+public interface IMortageService
 {
-    
+    public int GetTotalMortage();
 }

@@ -1,6 +1,16 @@
-﻿namespace OriolOr.Maneko.API.Service;
+﻿using OriolOr.Maneko.API.Service.Interfaces;
 
-public class MortageService
+namespace OriolOr.Maneko.API.Service;
+
+public class MortageService : IMortageService
 {
+    public int GetTotalMortage()
+    {
+        return 320000;
+    }
     
+    public int GetAmortizedMortage()
+    {
+        return 1200;
+    }
 }

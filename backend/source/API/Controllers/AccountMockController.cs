@@ -50,7 +50,6 @@ namespace OriolOr.Maneko.API.Controllers
         [HttpPost("AddMonthData")]
         public IActionResult AddMonthData([FromBody] MonthBalance monthBalance)
         {
-            //monthBalance.Month.
             //check if month is valid()
             //check if month and year already exists ()
             if (this.AccountService.ValidateMonth(monthBalance.Month))

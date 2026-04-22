@@ -7,7 +7,7 @@ import "./main.styles.css"
 
 const Main:React.FC = () => {
 
-    const [userBalance , setUserBalance] = useState(0);
+    const [userBalance , setUserBalance] = useState(1000);
 
     useEffect(()=>{
         const url = BaseUrl + "/AccountMock/GetCurrentBalance"

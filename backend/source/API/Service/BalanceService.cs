@@ -9,8 +9,6 @@ namespace OriolOr.Maneko.API.Service
     public class BalanceService : IBalanceService
     {
         public IBalanceRepository BalanceRepository;
-        
-
 
         public BalanceService(IBalanceRepository balanceRepository) {
             this.BalanceRepository = balanceRepository;
