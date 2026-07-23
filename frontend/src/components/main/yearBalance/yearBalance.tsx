@@ -37,6 +37,7 @@ const YearBalance:React.FC = () => {
                     Delta: jsonData.FinalBalance - jsonData.InitialBalance
                 };
             });
+            
             setYearData(monthList);
         })
         .catch(function (error) {});
@@ -83,7 +84,7 @@ const YearBalance:React.FC = () => {
                 ))}
             </tbody>
         </table>
-        <button onClick ={() => handleNewMonth(yearData)}>+</button>
+        <button onClick ={() => handleNewMonth(yearData)}>+ Add Month Data</button>
         </div>
     )
 }
