@@ -16,7 +16,6 @@ interface Month {
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 const YearBalance:React.FC = () => {
-
     const [yearData, setYearData] = useState<Month[]>([]);
     const [year, setYear] = useState<number>(null);
 
@@ -24,8 +23,8 @@ const YearBalance:React.FC = () => {
 
         const url = BaseUrl + "/AccountMock/GetCurrentYearData";
 
-        Axios.get(url).then(response => {
-            
+        Axios.get(url)
+            .then(response => {
             const fetchYearData = response.data.MonthBalances;
             setYear(response.data.Year);
 
@@ -37,6 +36,7 @@ const YearBalance:React.FC = () => {
                     Delta: jsonData.FinalBalance - jsonData.InitialBalance
                 };
             });
+            
             setYearData(monthList);
         })
         .catch(function (error) {});
@@ -66,6 +66,7 @@ const YearBalance:React.FC = () => {
                     <th>Start</th>
                     <th>End</th>
                     <th>Delta</th>
+                    <th>Nomina</th>
                 </tr>
             </thead> 
             <tbody>

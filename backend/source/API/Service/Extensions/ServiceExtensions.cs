@@ -7,8 +7,8 @@ namespace OriolOr.Maneko.API.Service.Extensions
     {
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
-            services.AddScoped<IBalanceService, BalanceService>()
-                    .AddScoped<IUserCredentialsService, UserCredentialsService>();
+            //services.AddScoped<IBalanceService, BalanceService>()
+                    //.AddScoped<IUserCredentialsService, UserCredentialsService>();
 
             return services;
         }

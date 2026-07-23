@@ -7,7 +7,9 @@ import "./main.styles.css"
 
 const Main:React.FC = () => {
 
-    const [userBalance , setUserBalance] = useState(1000);
+    const [userBalance , setUserBalance] = useState(1400);
+    const [n26Balance , setN26Balance] = useState(1479);
+    const [tradeBalance , setTradeBalance] = useState(2700);
 
     useEffect(()=>{
         const url = BaseUrl + "/AccountMock/GetCurrentBalance"
@@ -20,7 +22,9 @@ const Main:React.FC = () => {
     return (
     <div className = "mainContainer">
 
-        <span>Current Balance : {userBalance} € </span>
+        <span>N26 Balance: {userBalance} € </span>
+        <span>Trade Balance : {tradeBalance} € </span>
+        <span>Current Balance : {userBalance + tradeBalance} € </span>
         <YearBalance/>
     </div>
     )

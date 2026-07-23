@@ -54,7 +54,6 @@ namespace OriolOr.Maneko.API.Controllers
             //check if month and year already exists ()
             if (this.AccountService.ValidateMonth(monthBalance.Month))
             {
-                this.AccountService.AddMonthBalanceToDb(monthBalance);
                 return Ok(new { message = "Month balance added successfully." });
             }
             else
