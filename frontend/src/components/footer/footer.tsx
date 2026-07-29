@@ -12,8 +12,8 @@ export const Footer:React.FC = () => {
     function ManageconnectionStatus(){
 
     const url =  BaseUrl + "/AccountMock/GetCurrentBalance" ;
-    Axios.get(url).then(response => setConnectionStatus('Connected'))
-    .catch(function (error) {
+    Axios.get(url).then(() => setConnectionStatus('Connected'))
+    .catch(function () {
       setConnectionStatus('Not Connected')
     });
 

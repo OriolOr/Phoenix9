@@ -1,7 +1,5 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 using OriolOr.Maneko.API.Domain.IdentityManagement;
-using OriolOr.Maneko.API.Infrastructure;
-using OriolOr.Maneko.API.Infrastructure.Interfaces;
 using OriolOr.Maneko.API.Service.Interfaces;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -10,11 +8,11 @@ using System.Text;
 
 namespace OriolOr.Maneko.API.Service
 {
-    public class UserCredentialsService : IUserCredentialsService
+    public class UserCredentialsService
     {
-        public IUserDataRepository UserDataRepository; 
 
-        public UserCredentialsService(IUserDataRepository userDataRepository)
+        /*
+        public UserCredential sService(IUserDataRepository userDataRepository)
         {
             this.UserDataRepository = userDataRepository;
         }
@@ -63,6 +61,7 @@ namespace OriolOr.Maneko.API.Service
             this.UserDataRepository.AddUser(userCredentials);
             return true;
         }
+        */
 
         private JwtSecurityToken GenerateToken(string userName) {
 

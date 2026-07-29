@@ -1,6 +1,4 @@
-using OriolOr.Maneko.API.Infrastructure;
 using OriolOr.Maneko.API.Service.Extensions;
-using OriolOr.Maneko.Infrastructure.Extensions;
  
 namespace OriolOr.Maneko.API
 {
@@ -16,12 +14,8 @@ namespace OriolOr.Maneko.API
             builder.Services.AddSwaggerGen();
 
             //Extensions 
-            builder.Services.AddServices()
-                            .AddRepositoryServices();
 
             var app = builder.Build();
-
-            MongoDbConfigurator.InitializeDataBase();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
