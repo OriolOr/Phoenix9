@@ -17,7 +17,7 @@ const months = ["January", "February", "March", "April", "May", "June", "July", 
 
 const YearBalance:React.FC = () => {
     const [yearData, setYearData] = useState<Month[]>([]);
-    const [year, setYear] = useState<number>(null);
+    const [year, setYear] = useState<number| null>(null);
 
     useEffect(()=> {
 
@@ -39,11 +39,11 @@ const YearBalance:React.FC = () => {
             
             setYearData(monthList);
         })
-        .catch(function (error) {});
+        .catch(function () {});
 
     },[]);
 
-    const handleNewMonth = (yearData) => {
+    const handleNewMonth = (yearData: Month[]) => {
         const availableMonths = yearData.map(month => month.Name);
         console.log(availableMonths);
         const newMonth:Month = {
@@ -90,7 +90,7 @@ const YearBalance:React.FC = () => {
 }
 
 
-const handleSaveBalance = (value:number) => {
+const handleSaveBalance = (_value:number) => {
 
         //json convert 
         const data = { "Month": "January", "InitialBalance": 8908, "FinalBalance": 4980 }
@@ -100,7 +100,7 @@ const handleSaveBalance = (value:number) => {
 
         Axios.post(url,data, { headers: {
             'Content-Type': 'application/json'
-        } }).then(response => console.log(response)).catch(function (error) {});
+        } }).then(response => console.log(response)).catch(function () {});
 }
 
 

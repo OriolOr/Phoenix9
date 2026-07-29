@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Axios, { AxiosResponse } from "axios";
+import Axios, { type AxiosResponse } from "axios";
 import { Link } from "react-router-dom";
 import { BaseUrl } from "../../common/constants"
 import "./login.styles.css"
