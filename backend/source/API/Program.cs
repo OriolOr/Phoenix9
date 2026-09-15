@@ -9,11 +9,11 @@ namespace OriolOr.Maneko.API
             // Add services to the container.
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
             //Extensions 
+            builder.Services.AddServices();
 
             var app = builder.Build();
 

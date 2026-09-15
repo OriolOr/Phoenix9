@@ -3,3 +3,4 @@
 node_modules/
 /backend/source/API/OriolOr.Maneko.API.csproj.user
 /backend/.idea/.idea.OriolOr.Maneko/.idea
+backend/source/API/bin/

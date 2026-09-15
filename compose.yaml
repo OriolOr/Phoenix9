@@ -1,0 +1,32 @@
+version: "3.7"
+services:
+
+  frontend: 
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+
+
+
+    container_name: frontend_maneko
+    ports:
+      - "8080:8080"
+    networks: 
+      - maneko-network 
+
+  backend:
+
+    build:
+      context: ./backend/source/API
+      dockerfile: Dockerfile
+    container_name: backend_maneko
+    ports:
+      - "5000:5000"
+      - "5001:5001"
+    networks: 
+      - maneko-network 
+
+networks : 
+  maneko-network:
+
+
