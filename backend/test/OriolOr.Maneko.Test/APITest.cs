@@ -19,21 +19,21 @@ namespace OriolOr.Maneko.Test
         }
 
         [Fact]
-        public async void APITest_GetCurrentBalance_400BadRequest()
+        public async Task APITest_GetCurrentBalance_400BadRequest()
         {
             var response = await client.GetAsync("https://localhost:7171/Account/GetCurrentBalance");
             response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
         }
 
         [Fact]
-        public async void APITest_GetYearData_400BadRequest()
+        public async Task APITest_GetYearData_400BadRequest()
         {
             var response = await client.GetAsync("https://localhost:7171/Account/GetYearData");
             response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
         }
 
         [Fact]
-        public async void APITest_LogInUser_400BadRequest()
+        public async Task APITest_LogInUser_400BadRequest()
         {
             var httpContent = new StringContent("", Encoding.UTF8, "application/json");
             var response = await client.PostAsync("https://localhost:7171/LoginCredentials", httpContent);
@@ -41,7 +41,7 @@ namespace OriolOr.Maneko.Test
         }
 
         [Fact]
-        public async void APITest_SigInUser_400BadRequest()
+        public async Task APITest_SigInUser_400BadRequest()
         {
             var httpContent = new StringContent("{'password' : '1234'}", Encoding.UTF8, "application/json");
             var response = await client.PostAsync("https://localhost:7171/SignInUser", httpContent);
