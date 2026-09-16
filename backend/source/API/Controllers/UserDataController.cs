@@ -18,7 +18,8 @@ namespace OriolOr.Maneko.API.Controllers
         [HttpPost("LoginCredentials")]
         public IActionResult LoginCredentials(UserCredentials userCredentials) {
 
-            if (userCredentials.Password.IsNullOrEmpty() || userCredentials.Password.IsNullOrEmpty())
+            if (string.IsNullOrWhiteSpace(userCredentials.UserName) ||
+                string.IsNullOrWhiteSpace(userCredentials.Password))
             {
                 return StatusCode(StatusCodes.Status400BadRequest);
             }
@@ -37,7 +38,8 @@ namespace OriolOr.Maneko.API.Controllers
         [HttpPost("SignInUser")]
         public IActionResult SignInUser(UserCredentials userCredentials) {
 
-            if (userCredentials.Password.IsNullOrEmpty() || userCredentials.Password.IsNullOrEmpty())
+            if (string.IsNullOrWhiteSpace(userCredentials.UserName) ||
+                string.IsNullOrWhiteSpace(userCredentials.Password))
             {
                 return StatusCode(StatusCodes.Status400BadRequest);
             }
